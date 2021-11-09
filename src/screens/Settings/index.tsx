@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Title } from '../../components/styles'
 import { theme } from '../../global/styles/theme'
 // import { theme } from '../../global/styles/theme'
-import { Button, Line, Switch, SwitchView } from './styles'
+import { Button, Line, RedTitle, Switch, SwitchView } from './styles'
 
 export function Settings() {
   const [isEnabled, setIsEnabled] = useState(false)
@@ -38,9 +38,9 @@ export function Settings() {
       </Button>
       <Line />
       <Button>
-        <Title>
+        <RedTitle>
           Sair da Conta
-        </Title>
+        </RedTitle>
       </Button>
     </Container>
   )

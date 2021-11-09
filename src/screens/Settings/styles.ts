@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { fonts } from '../../global/styles/fonts'
 import { theme } from '../../global/styles/theme'
 
 export const Line = styled.View`
@@ -19,4 +20,10 @@ export const Switch = styled.Switch`
 export const SwitchView = styled.View`
   flex-direction: row;
   align-items: center;
+`
+
+export const RedTitle = styled.Text`
+  font-family: ${fonts.black};
+  color: ${theme.dark.red};
+  font-size: 20px;
 `
