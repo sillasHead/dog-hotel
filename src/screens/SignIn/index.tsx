@@ -22,8 +22,8 @@ export default function SignIn() {
       <Logo />
 
       <View>
-        <Input placeholder="Login" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Senha" placeholderTextColor={theme.dark.gray} />
+        <Input placeholder="Login" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Senha" placeholderTextColor={theme.dark.gray400} />
       </View>
 
       <View>

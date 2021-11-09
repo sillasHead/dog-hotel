@@ -12,11 +12,11 @@ export function House({ update }: Props) {
       <Title>{update ? 'Atualizar casa' : 'Cadastrar casa'}</Title>
 
       <View>
-        <Input placeholder="Tipo de estabelecimento" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Rua" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Número" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Complemento" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Telefone" placeholderTextColor={theme.dark.gray} />
+        <Input placeholder="Tipo de estabelecimento" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Rua" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Número" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Complemento" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Telefone" placeholderTextColor={theme.dark.gray400} />
       </View>
 
       {/* TODO Adicionar container de imagem da casa */}

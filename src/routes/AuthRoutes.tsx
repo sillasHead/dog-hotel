@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { Customer } from '../screens/Customer'
 import { House } from '../screens/House'
+import { Settings } from '../screens/Settings'
 import SignIn from '../screens/SignIn'
 
 const { Navigator, Screen } = createNativeStackNavigator()
@@ -23,9 +24,16 @@ export function AuthRoutes() {
           headerShown: false,
         }}
       /> */}
-      <Screen
+      {/* <Screen
         name="House"
         component={House}
+        options={{
+          headerShown: false,
+        }}
+      /> */}
+      <Screen
+        name="Settings"
+        component={Settings}
         options={{
           headerShown: false,
         }}

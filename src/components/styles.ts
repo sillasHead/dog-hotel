@@ -14,12 +14,12 @@ export const View = styled.View`
 `
 export const Title = styled.Text`
   font-family: ${fonts.black};
-  color: ${theme.dark.gray};
+  color: ${theme.dark.gray400};
   font-size: 20px;
 `
 export const Input = styled.TextInput`
   color: ${theme.dark.white};
-  border-color: ${theme.dark.gray};
+  border-color: ${theme.dark.gray400};
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;

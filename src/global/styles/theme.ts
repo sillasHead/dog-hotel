@@ -2,7 +2,8 @@ export const theme = {
   dark: {
     white: '#FFFFFF',
     black: '#3A3A3A',
-    gray: '#BBBBBB',
+    gray400: '#BBBBBB',
+    gray600: '#757575',
     green: '#96FF85',
     greenGray: '#3A3A3A',
     greenGrayDisabled: '#76BF6A',

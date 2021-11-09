@@ -12,10 +12,10 @@ export function Customer({ update }: Props) {
       <Title>{update ? 'Atualizar dados' : 'Novo cadastro'}</Title>
 
       <View>
-        <Input placeholder="Nome Completo" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="CPF" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Login" placeholderTextColor={theme.dark.gray} />
-        <Input placeholder="Senha" placeholderTextColor={theme.dark.gray} />
+        <Input placeholder="Nome Completo" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="CPF" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Login" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Senha" placeholderTextColor={theme.dark.gray400} />
       </View>
 
       <View>
