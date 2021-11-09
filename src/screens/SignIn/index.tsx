@@ -1,27 +1,15 @@
-import {
-  Rubik_400Regular,
-  Rubik_500Medium,
-  Rubik_700Bold,
-  Rubik_900Black, useFonts
-} from '@expo-google-fonts/rubik'
-import AppLoading from 'expo-app-loading'
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { StatusBar } from 'react-native'
 import Logo from '../../assets/logo.svg'
+import { Button, ButtonOutline, Container, Input, TextButton, TextButtonOutline, View } from '../../components/styles'
 import { theme } from '../../global/styles/theme'
-import { Button, ButtonOutline, Container, Input, TextButton, TextButtonOutline, View } from './styles'
 
 export default function SignIn() {
-  const [fontsLoaded] = useFonts({
-    Rubik_400Regular,
-    Rubik_500Medium,
-    Rubik_700Bold,
-    Rubik_900Black
-  })
+  const navigation = useNavigation()
 
-  if (!fontsLoaded) { // se não carregou as fontes
-    // segurar a tela splash enquanto carrega as fontes
-    return <AppLoading />
+  function handleSignIn() {
+    // navigation.navigate('Enrollment')
   }
 
   return (

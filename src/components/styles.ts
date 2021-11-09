@@ -1,20 +1,22 @@
-import { StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
-import { fonts } from '../../global/styles/fonts'
-import { theme } from '../../global/styles/theme'
+import { fonts } from '../global/styles/fonts'
+import { theme } from '../global/styles/theme'
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${theme.dark.black};
   align-items: center;
   justify-content: center;
+  background-color: ${theme.dark.black};
 `
-
 export const View = styled.View`
   width: 90%;
   margin-top: 50px;
 `
-
+export const Title = styled.Text`
+  font-family: ${fonts.black};
+  color: ${theme.dark.gray};
+  font-size: 20px;
+`
 export const Input = styled.TextInput`
   color: ${theme.dark.white};
   border-color: ${theme.dark.gray};
@@ -23,7 +25,6 @@ export const Input = styled.TextInput`
   padding: 10px;
   margin: 10px;
 `
-
 export const Button = styled.TouchableOpacity`
   align-items: center;
   background-color: ${theme.dark.green};
@@ -34,7 +35,6 @@ export const Button = styled.TouchableOpacity`
   padding: 10px;
   margin: 10px;
 `
-
 export const ButtonOutline = styled.TouchableOpacity`
   align-items: center;
   border-color: ${theme.dark.green};
@@ -44,12 +44,10 @@ export const ButtonOutline = styled.TouchableOpacity`
   padding: 10px;
   margin: 10px;
 `
-
 export const TextButton = styled.Text`
   color: ${theme.dark.black};
   font-family: ${fonts.black};
 `
-
 export const TextButtonOutline = styled.Text`
   color: ${theme.dark.green};
   font-family: ${fonts.black};
