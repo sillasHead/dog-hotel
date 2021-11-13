@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { StatusBar } from 'react-native'
 import Logo from '../../assets/logo.svg'
-import { Button, ButtonOutline, Container, Input, TextButton, TextButtonOutline, View } from '../../components/styles'
+import { TouchableOpacity, TouchableOpacityOutline, Container, Input, TextButton, TextButtonOutline, View } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 
 export default function SignIn() {
@@ -27,12 +27,12 @@ export default function SignIn() {
       </View>
 
       <View>
-        <Button onPress={() => null}>
+        <TouchableOpacity onPress={() => null}>
           <TextButton>Entrar</TextButton>
-        </Button>
-        <ButtonOutline onPress={() => null}>
+        </TouchableOpacity>
+        <TouchableOpacityOutline onPress={() => null}>
           <TextButtonOutline>Criar nova conta</TextButtonOutline>
-        </ButtonOutline>
+        </TouchableOpacityOutline>
       </View>
     </Container>
   )

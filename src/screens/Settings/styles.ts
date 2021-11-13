@@ -22,7 +22,7 @@ export const SwitchView = styled.View`
   align-items: center;
 `
 
-export const RedTitle = styled.Text`
+export const TitleRed = styled.Text`
   font-family: ${fonts.black};
   color: ${theme.dark.red};
   font-size: 20px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Input, TextButton, Title, View } from '../../components/styles'
+import { TouchableOpacity, Container, Input, TextButton, Title, View } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 
 type Props = {
@@ -19,9 +19,9 @@ export function Customer({ update }: Props) {
       </View>
 
       <View>
-        <Button>
+        <TouchableOpacity>
           <TextButton>{update ? 'Atualizar' : 'Cadastrar'}</TextButton>
-        </Button>
+        </TouchableOpacity>
       </View>
     </Container>
   )

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Container, Title } from '../../components/styles'
+import { Container, Title } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 // import { theme } from '../../global/styles/theme'
-import { Button, Line, RedTitle, Switch, SwitchView } from './styles'
+import { Button, Line, TitleRed, Switch, SwitchView } from './styles'
 
 export function Settings() {
   const [isEnabled, setIsEnabled] = useState(false)
@@ -38,9 +38,9 @@ export function Settings() {
       </Button>
       <Line />
       <Button>
-        <RedTitle>
+        <TitleRed>
           Sair da Conta
-        </RedTitle>
+        </TitleRed>
       </Button>
     </Container>
   )
