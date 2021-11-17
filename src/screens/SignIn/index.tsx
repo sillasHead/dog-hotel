@@ -1,15 +1,22 @@
-import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { StatusBar } from 'react-native'
 import Logo from '../../assets/logo.svg'
-import { TouchableOpacity, TouchableOpacityOutline, Container, Input, TextButton, TextButtonOutline, View } from '../../global/styles/components'
+import { Button } from '../../components/Button'
+import {
+  Container,
+  Input, 
+  TextButtonOutline,
+  View
+} from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 
-export default function SignIn() {
-  const navigation = useNavigation()
+type Props = {
+  navigation: any
+}
 
-  function handleSignIn() {
-    // navigation.navigate('Enrollment')
+export default function SignIn({ navigation }: Props) {
+  function handleEnter() {
+    navigation.navigate('Customer')
   }
 
   return (
@@ -23,16 +30,12 @@ export default function SignIn() {
 
       <View>
         <Input placeholder="Login" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Senha" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Senha" secureTextEntry={true} placeholderTextColor={theme.dark.gray400} />
       </View>
 
       <View>
-        <TouchableOpacity onPress={() => null}>
-          <TextButton>Entrar</TextButton>
-        </TouchableOpacity>
-        <TouchableOpacityOutline onPress={() => null}>
+          <Button onPress={handleEnter}>Entrar</Button>
           <TextButtonOutline>Criar nova conta</TextButtonOutline>
-        </TouchableOpacityOutline>
       </View>
     </Container>
   )

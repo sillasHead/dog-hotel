@@ -1,6 +1,6 @@
 import React from 'react'
 import { StarRating } from '../../../components/StarRating'
-import { TouchableOpacity, TouchableOpacityOutline, Text, TextButton, TextButtonOutline } from '../../../global/styles/components'
+import { TouchableOpacityContent, TouchableOpacityOutline, Text, TextButtonContent, TextButtonOutline } from '../../../global/styles/components'
 import { Container, ContainerImage, Evaluation, Line, TitleGreen, View } from './styles'
 
 export function Selection() {
@@ -33,9 +33,9 @@ export function Selection() {
         <Text>sillas@email.com</Text>
       </View>
 
-      <TouchableOpacity>
-        <TextButton>Selecionar Casa</TextButton>
-      </TouchableOpacity>
+      <TouchableOpacityContent>
+        <TextButtonContent>Selecionar Casa</TextButtonContent>
+      </TouchableOpacityContent>
     </Container>
   )
 }

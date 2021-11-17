@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, TouchableOpacityOutline, Container, Input, TextButton, TextButtonOutline, Title, View } from '../../global/styles/components'
+import { TouchableOpacityContent, TouchableOpacityOutline, Container, Input, TextButtonContent, TextButtonOutline, Title, View } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 
 type Props = {
@@ -29,11 +29,11 @@ export function House({ update }: Props) {
       </View>
 
       <View>
-        <TouchableOpacity>
-          <TextButton>
+        <TouchableOpacityContent>
+          <TextButtonContent>
             {update ? 'Atualizar' : 'Cadastrar'}
-          </TextButton>
-        </TouchableOpacity>
+          </TextButtonContent>
+        </TouchableOpacityContent>
       </View>
     </Container>
   )

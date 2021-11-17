@@ -8,8 +8,14 @@ export const Container = styled.View`
   justify-content: center;
   background-color: ${theme.dark.black};
 `
-export const View = styled.View`
-  width: 90%;
+
+interface IView {
+  flexDirection?: 'row' | 'column'
+  width?: string | number
+}
+export const View = styled.View<IView>`
+  flex-direction: ${props => props.flexDirection || 'column'};
+  width: ${props => props.width || '90%'};
   margin-top: 50px;
 `
 export const Text = styled.Text`
@@ -28,11 +34,10 @@ export const Input = styled.TextInput`
   padding: 10px;
   margin: 10px;
 `
-export const TouchableOpacity = styled.TouchableOpacity`
+export const TouchableOpacityContent = styled.TouchableOpacity`
   align-items: center;
   background-color: ${theme.dark.green};
   border-color: transparent;   
-  color: ${theme.dark.white};
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;
@@ -41,17 +46,27 @@ export const TouchableOpacity = styled.TouchableOpacity`
 export const TouchableOpacityOutline = styled.TouchableOpacity`
   align-items: center;
   border-color: ${theme.dark.green};
-  color: ${theme.dark.black};
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
 `
-export const TextButton = styled.Text`
+export const TouchableOpacityText = styled.TouchableOpacity`
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+`
+export const TextButtonContent = styled.Text`
   color: ${theme.dark.black};
   font-family: ${fonts.black};
 `
 export const TextButtonOutline = styled.Text`
   color: ${theme.dark.green};
   font-family: ${fonts.black};
+`
+export const TextButtonText = styled.Text`
+  font-family: ${fonts.black};
+  color: ${theme.dark.gray400};
+  font-size: 20px;
 `
