@@ -5,10 +5,10 @@ import { Button } from '../../components/Button'
 import {
   Container,
   Input, 
-  TextButtonOutline,
   View
 } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
+import routes from '../../routes'
 
 type Props = {
   navigation: any
@@ -16,7 +16,11 @@ type Props = {
 
 export default function SignIn({ navigation }: Props) {
   function handleEnter() {
-    navigation.navigate('Customer')
+    navigation.navigate(routes.SELECTION)
+  }
+  
+  function handleNewAccount() {
+    navigation.navigate(routes.CUSTOMER)
   }
 
   return (
@@ -35,7 +39,7 @@ export default function SignIn({ navigation }: Props) {
 
       <View>
           <Button onPress={handleEnter}>Entrar</Button>
-          <TextButtonOutline>Criar nova conta</TextButtonOutline>
+          <Button type="outline" onPress={handleNewAccount}>Criar nova conta</Button>
       </View>
     </Container>
   )

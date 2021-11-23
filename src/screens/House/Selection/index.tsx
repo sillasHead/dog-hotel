@@ -1,7 +1,8 @@
 import React from 'react'
+import { Button } from '../../../components/Button'
 import { StarRating } from '../../../components/StarRating'
-import { TouchableOpacityContent, TouchableOpacityOutline, Text, TextButtonContent, TextButtonOutline } from '../../../global/styles/components'
-import { Container, ContainerImage, Evaluation, Line, TitleGreen, View } from './styles'
+import { Container, ContainerImage, Line, Text, Title, View } from '../../../global/styles/components'
+import { Evaluation } from './styles'
 
 export function Selection() {
   return (
@@ -11,31 +12,27 @@ export function Selection() {
       </ContainerImage>
 
       <View>
-        <TitleGreen>Nome do Anfitrião</TitleGreen>
+        <Title color="green">Nome do Anfitrião</Title>
         <Text>Sillas Cavalcante</Text>
       </View>
 
-      <Line />
+      <Line />  
 
       <Evaluation>
         <StarRating />
-        <TouchableOpacityOutline>
-          <TextButtonOutline>Avaliar</TextButtonOutline>
-        </TouchableOpacityOutline>
+        <Button>Avaliar</Button>
       </Evaluation>
 
       <Line />
 
       <View>
-        <TitleGreen>Contato</TitleGreen>
+        <Title color="green">Contato</Title>
         <Text>(11) 2536-8596</Text>
         <Text>(11) 99999-6886</Text>
         <Text>sillas@email.com</Text>
       </View>
 
-      <TouchableOpacityContent>
-        <TextButtonContent>Selecionar Casa</TextButtonContent>
-      </TouchableOpacityContent>
+      <Button>Selecionar Casa</Button>
     </Container>
   )
 }

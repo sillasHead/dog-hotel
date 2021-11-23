@@ -1,6 +1,5 @@
-import { HTMLAttributes, Touch } from 'hoist-non-react-statics/node_modules/@types/react'
 import React from 'react'
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native'
+import { TouchableOpacityProps } from 'react-native'
 import {
   TextButtonContent,
   TextButtonOutline,
@@ -15,23 +14,23 @@ interface Props extends TouchableOpacityProps {
   type?: 'content' | 'outline' | 'text'
 }
 
-export function Button({ children, type = 'content' }: Props) {
+export function Button({ children, type = 'content', ...props }: Props) {
   switch (type) {
     case 'content':
       return (
-        <TouchableOpacityContent>
+        <TouchableOpacityContent {...props}>
           <TextButtonContent>{children}</TextButtonContent>
         </TouchableOpacityContent>
       )
     case 'outline':
       return (
-        <TouchableOpacityOutline>
+        <TouchableOpacityOutline {...props}>
           <TextButtonOutline>{children}</TextButtonOutline>
         </TouchableOpacityOutline>
       )
     case 'text':
       return (
-        <TouchableOpacityText>
+        <TouchableOpacityText {...props}>
           <TextButtonText>{children}</TextButtonText>
         </TouchableOpacityText>
       )

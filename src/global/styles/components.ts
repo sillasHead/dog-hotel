@@ -14,6 +14,7 @@ interface IView {
   width?: string | number
 }
 export const View = styled.View<IView>`
+  align-items: center;
   flex-direction: ${props => props.flexDirection || 'column'};
   width: ${props => props.width || '90%'};
   margin-top: 50px;
@@ -21,9 +22,13 @@ export const View = styled.View<IView>`
 export const Text = styled.Text`
   color: ${theme.dark.white};
 `
-export const Title = styled.Text`
+
+interface ITitle {
+  color?: 'gray400' | 'red' | 'green'
+}
+export const Title = styled.Text<ITitle>`
   font-family: ${fonts.black};
-  color: ${theme.dark.gray400};
+  color: ${props => theme.dark[props.color || 'gray400']};
   font-size: 20px;
 `
 export const Input = styled.TextInput`
@@ -69,4 +74,14 @@ export const TextButtonText = styled.Text`
   font-family: ${fonts.black};
   color: ${theme.dark.gray400};
   font-size: 20px;
+`
+export const Line = styled.View`
+  width: 80%;
+  height: 1px;
+  background: ${theme.dark.gray400};
+`
+export const ContainerImage = styled.View`
+  width: 100%;
+  height: 400px;
+  background: white;
 `
