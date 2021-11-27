@@ -1,38 +1,56 @@
 import React from 'react'
 import { Button } from '../../../components/Button'
-import { StarRating } from '../../../components/StarRating'
-import { Container, ContainerImage, Line, Text, Title, View } from '../../../global/styles/components'
-import { Evaluation } from './styles'
+import { Footer } from '../../../components/Footer'
+import { StarRatingt } from '../../../components/StarRating'
+import { Container, ContainerImage, Image, Line, Text, Title, View } from '../../../global/styles/components'
+import routes from '../../../routes/routes'
 
-export function Selection() {
+type Props = {
+  navigation: any
+}
+
+export function Selection({ navigation }: Props) {
+  function handleGoSettings() {
+    navigation.navigate(routes.SETTINGS)
+  }
+  
   return (
-    <Container>
-      <ContainerImage>
+    <>
+      <Container justifyContent="flex-start">
+        <ContainerImage>
+          <Image source={{ uri: 'https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg' }} style={{ resizeMode: 'contain' }} />
+        </ContainerImage>
 
-      </ContainerImage>
+        <View marginTop="50px">
+          <Title color="green">Nome do Anfitrião</Title>
+          <Text>Sillas Cavalcante</Text>
+        </View>
 
-      <View>
-        <Title color="green">Nome do Anfitrião</Title>
-        <Text>Sillas Cavalcante</Text>
-      </View>
+        <Line />
 
-      <Line />  
+        <View flexDirection="row" justifyContent="space-between">
+          <StarRatingt />
+          <Button>Avaliar</Button>
+        </View>
 
-      <Evaluation>
-        <StarRating />
-        <Button>Avaliar</Button>
-      </Evaluation>
+        <Line />
 
-      <Line />
+        <View>
+          <Title color="green">Contato</Title>
+          <Text>(11) 2536-8596</Text>
+          <Text>(11) 99999-6886</Text>
+          <Text>sillas@email.com</Text>
+        </View>
 
-      <View>
-        <Title color="green">Contato</Title>
-        <Text>(11) 2536-8596</Text>
-        <Text>(11) 99999-6886</Text>
-        <Text>sillas@email.com</Text>
-      </View>
+        <View marginTop="10px">
+          <Button stretch>Selecionar Casa</Button>
+        </View>
 
-      <Button>Selecionar Casa</Button>
-    </Container>
+      </Container>
+      <Footer
+        goSettings={handleGoSettings}
+        goBack={() => navigation.goBack()}
+      />
+    </>
   )
 }

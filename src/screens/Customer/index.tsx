@@ -1,5 +1,6 @@
 import React from 'react'
-import { TouchableOpacityContent, Container, Input, TextButtonContent, Title, View } from '../../global/styles/components'
+import { Button } from '../../components/Button'
+import { Container, Input, Title, View } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 
 type Props = {
@@ -8,20 +9,20 @@ type Props = {
 
 export function Customer({ update }: Props) {
   return (
-    <Container>
+    <Container justifyContent="space-around">
       <Title>{update ? 'Atualizar dados' : 'Novo cadastro'}</Title>
 
       <View>
         <Input placeholder="Nome Completo" placeholderTextColor={theme.dark.gray400} />
         <Input placeholder="CPF" placeholderTextColor={theme.dark.gray400} />
         <Input placeholder="Login" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Senha" placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Senha" secureTextEntry placeholderTextColor={theme.dark.gray400} />
       </View>
 
       <View>
-        <TouchableOpacityContent>
-          <TextButtonContent>{update ? 'Atualizar' : 'Cadastrar'}</TextButtonContent>
-        </TouchableOpacityContent>
+        <Button stretch>
+          {update ? 'Atualizar' : 'Cadastrar'}
+        </Button>
       </View>
     </Container>
   )

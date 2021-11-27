@@ -8,7 +8,7 @@ import {
   View
 } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
-import routes from '../../routes'
+import routes from '../../routes/routes'
 
 type Props = {
   navigation: any
@@ -32,14 +32,14 @@ export default function SignIn({ navigation }: Props) {
       />
       <Logo />
 
-      <View>
+      <View marginTop="50px">
         <Input placeholder="Login" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Senha" secureTextEntry={true} placeholderTextColor={theme.dark.gray400} />
+        <Input placeholder="Senha" secureTextEntry placeholderTextColor={theme.dark.gray400} />
       </View>
 
-      <View>
-          <Button onPress={handleEnter}>Entrar</Button>
-          <Button type="outline" onPress={handleNewAccount}>Criar nova conta</Button>
+      <View marginTop="50px">
+          <Button stretch onPress={handleEnter}>Entrar</Button>
+          <Button stretch type="outline" onPress={handleNewAccount}>Criar nova conta</Button>
       </View>
     </Container>
   )

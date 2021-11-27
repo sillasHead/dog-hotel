@@ -4,35 +4,37 @@ import {
   TextButtonContent,
   TextButtonOutline,
   TextButtonText,
-  TouchableOpacityContent,
-  TouchableOpacityOutline,
-  TouchableOpacityText
+  ButtonContent,
+  ButtonOutline,
+  ButtonText
 } from '../../global/styles/components'
 
 interface Props extends TouchableOpacityProps {
   children: React.ReactNode
+  stretch?: boolean
   type?: 'content' | 'outline' | 'text'
+  textColor?: 'gray400' | 'red' | 'green'
 }
 
-export function Button({ children, type = 'content', ...props }: Props) {
+export function Button({ children, stretch = false, type = 'content', textColor = 'gray400', ...props }: Props) {
   switch (type) {
     case 'content':
       return (
-        <TouchableOpacityContent {...props}>
+        <ButtonContent {...props} stretch={stretch}>
           <TextButtonContent>{children}</TextButtonContent>
-        </TouchableOpacityContent>
+        </ButtonContent>
       )
     case 'outline':
       return (
-        <TouchableOpacityOutline {...props}>
+        <ButtonOutline {...props} stretch={stretch}>
           <TextButtonOutline>{children}</TextButtonOutline>
-        </TouchableOpacityOutline>
+        </ButtonOutline>
       )
     case 'text':
       return (
-        <TouchableOpacityText {...props}>
-          <TextButtonText>{children}</TextButtonText>
-        </TouchableOpacityText>
+        <ButtonText {...props} stretch={stretch}>
+          <TextButtonText color={textColor}>{children}</TextButtonText>
+        </ButtonText>
       )
   }
 }

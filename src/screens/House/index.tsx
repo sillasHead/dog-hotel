@@ -1,5 +1,6 @@
 import React from 'react'
-import { TouchableOpacityContent, TouchableOpacityOutline, Container, Input, TextButtonContent, TextButtonOutline, Title, View } from '../../global/styles/components'
+import { Button } from '../../components/Button'
+import { Container, Input, Title, View } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
 
 type Props = {
@@ -21,19 +22,15 @@ export function House({ update }: Props) {
 
       {/* TODO Adicionar container de imagem da casa */}
       <View>
-        <TouchableOpacityOutline>
-          <TextButtonOutline>
+        <Button type="outline">
             Carregar foto de casa
-          </TextButtonOutline>
-        </TouchableOpacityOutline>
+        </Button>
       </View>
 
       <View>
-        <TouchableOpacityContent>
-          <TextButtonContent>
+        <Button type="content">
             {update ? 'Atualizar' : 'Cadastrar'}
-          </TextButtonContent>
-        </TouchableOpacityContent>
+        </Button>
       </View>
     </Container>
   )

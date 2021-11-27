@@ -1,47 +1,57 @@
 import React, { useState } from 'react'
-import { Container, Title } from '../../global/styles/components'
+import { Button } from '../../components/Button'
+import { Footer } from '../../components/Footer'
+import { Container, Line, Switch, Title, TouchableOpacity, View } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
-// import { theme } from '../../global/styles/theme'
-import { Button, Line, TitleRed, Switch, SwitchView } from './styles'
 
-export function Settings() {
+type Props = {
+  navigation: any
+}
+
+export function Settings({ navigation }: Props) {
   const [isEnabled, setIsEnabled] = useState(false)
   const toggleSwitch = () => setIsEnabled(previousState => !previousState)
-
+  
   return (
-    <Container>
-      <Button onPress={toggleSwitch}>
-        <SwitchView>
-          <Title>
-            Tema Escuro
-          </Title>
-          <Switch
-            trackColor={{ false: theme.dark.gray600, true: theme.dark.greenGrayDisabled }}
-            thumbColor={isEnabled ? theme.dark.green : theme.dark.gray400}
-            ios_backgroundColor={theme.dark.gray600}
-            onValueChange={toggleSwitch}
-            value={isEnabled}
-          />
-        </SwitchView>
-      </Button>
-      <Line />
-      <Button>
-        <Title>
-          Ser Anfitrião
-        </Title>
-      </Button>
-      <Line />
-      <Button>
-        <Title>
-          Alterar Dados
-        </Title>
-      </Button>
-      <Line />
-      <Button>
-        <TitleRed>
-          Sair da Conta
-        </TitleRed>
-      </Button>
-    </Container>
+    <>
+      <Container>
+        <TouchableOpacity onPress={toggleSwitch}>
+          <View flexDirection="row" alignItems="center">
+            <Title>
+              Tema Escuro
+            </Title>
+            <Switch
+              trackColor={{ false: theme.dark.gray600, true: theme.dark.greenGrayDisabled }}
+              thumbColor={isEnabled ? theme.dark.green : theme.dark.gray400}
+              ios_backgroundColor={theme.dark.gray600}
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <Line />
+
+        <Button type="text">
+            Ser Anfitrião
+        </Button>
+
+        <Line />
+
+        <Button type="text">
+            Alterar Dados
+        </Button>
+
+        <Line />
+        
+        <Button textColor="red" type="text">
+            Sair da Conta
+        </Button>
+      </Container>
+      <Footer
+        goSettingsDisabled
+        goBack={() => navigation.goBack()}
+      />
+    </>
   )
 }
