@@ -4,23 +4,22 @@ import Logo from '../../assets/logo.svg'
 import { Button } from '../../components/Button'
 import {
   Container,
-  Input, 
+  Input,
   View
 } from '../../global/styles/components'
 import { theme } from '../../global/styles/theme'
-import routes from '../../routes/routes'
 
 type Props = {
   navigation: any
 }
 
-export default function SignIn({ navigation }: Props) {
+export function SignIn({ navigation }: Props) {
   function handleEnter() {
-    navigation.navigate(routes.SELECTION)
+    navigation.navigate('List')
   }
   
   function handleNewAccount() {
-    navigation.navigate(routes.CUSTOMER)
+    navigation.navigate('Customer')
   }
 
   return (

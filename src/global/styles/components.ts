@@ -24,6 +24,8 @@ interface IButton {
   stretch?: boolean
 }
 interface IContainerImage {
+  width?: string
+  height?: string
   marginBottom?: string
 }
 
@@ -106,8 +108,8 @@ export const Line = styled.View`
   background: ${theme.dark.gray400};
 `
 export const ContainerImage = styled.View<IContainerImage>`
-  width: 100%;
-  height: 400px;
+  width: ${props => props.width || '100%'};
+  height: ${props => props.height || '400px'};
   background: ${theme.dark.black};
   margin-bottom: ${props => props.marginBottom || '0px'};
 `
@@ -117,4 +119,13 @@ export const Image = styled.Image`
 `
 export const Switch = styled.Switch`
   
+`
+export const Modal = styled.Modal`
+  width: 60%;
+  height: 30%;
+  background-color: red;
+  position: absolute;
+`
+export const FlatList = styled.FlatList`
+  width: 100%;
 `

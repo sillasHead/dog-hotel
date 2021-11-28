@@ -11,6 +11,10 @@ type Props = {
 export function Settings({ navigation }: Props) {
   const [isEnabled, setIsEnabled] = useState(false)
   const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+
+  function handleGoHome() {
+    navigation.navigate('List')
+  }
   
   return (
     <>
@@ -49,7 +53,8 @@ export function Settings({ navigation }: Props) {
         </Button>
       </Container>
       <Footer
-        goSettingsDisabled
+        goSettingsDisabled       
+        goHome={handleGoHome}
         goBack={() => navigation.goBack()}
       />
     </>

@@ -2,46 +2,54 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { Customer } from '../screens/Customer'
 import { House } from '../screens/House'
+import { List } from '../screens/House/List'
 import { Selection } from '../screens/House/Selection'
 import { Settings } from '../screens/Settings'
-import SignIn from '../screens/SignIn'
+import { SignIn } from '../screens/SignIn'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
 export function AuthRoutes() {
   return (
-    <Navigator initialRouteName="SignIn">
+    <Navigator initialRouteName={'SignIn'}>
       <Screen
-        name="SignIn"
+        name={'SignIn'}
         component={SignIn}
         options={{
           headerShown: false,
         }}
       />
       <Screen
-        name="Customer"
+        name={'Customer'}
         component={Customer}
         options={{
           headerShown: false,
         }}
       />
       <Screen
-        name="House"
+        name={'House'}
         component={House}
         options={{
           headerShown: false,
         }}
       />
       <Screen
-        name="Settings"
+        name={'Settings'}
         component={Settings}
         options={{
           headerShown: false,
         }}
       />
       <Screen
-        name="Selection"
+        name={'Selection'}
         component={Selection}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name={'List'}
+        component={List}
         options={{
           headerShown: false,
         }}

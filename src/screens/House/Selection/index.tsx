@@ -3,17 +3,26 @@ import { Button } from '../../../components/Button'
 import { Footer } from '../../../components/Footer'
 import { StarRatingt } from '../../../components/StarRating'
 import { Container, ContainerImage, Image, Line, Text, Title, View } from '../../../global/styles/components'
-import routes from '../../../routes/routes'
 
 type Props = {
   navigation: any
 }
 
 export function Selection({ navigation }: Props) {
+  // const [modalVisible, setModalVisible] = useState(false)
+
+  // function handleModal() {
+  //   setModalVisible(x => !x)
+  // }
+
   function handleGoSettings() {
-    navigation.navigate(routes.SETTINGS)
+    navigation.navigate('Settings')
   }
-  
+
+  function handleGoHome() {
+    navigation.navigate('List')
+  }
+
   return (
     <>
       <Container justifyContent="flex-start">
@@ -30,7 +39,7 @@ export function Selection({ navigation }: Props) {
 
         <View flexDirection="row" justifyContent="space-between">
           <StarRatingt />
-          <Button>Avaliar</Button>
+          <Button /* onPress={handleModal} */>Avaliar</Button>
         </View>
 
         <Line />
@@ -49,6 +58,7 @@ export function Selection({ navigation }: Props) {
       </Container>
       <Footer
         goSettings={handleGoSettings}
+        goHome={handleGoHome}
         goBack={() => navigation.goBack()}
       />
     </>
