@@ -40,7 +40,8 @@ export const StyledView = styled.View<IView>`
   justify-content: ${props => props.justifyContent || 'center'};
   flex-direction: ${props => props.flexDirection || 'column'};
   height: ${props => props.heigth || 'auto'};
-  width: ${props => props.width || '90%'};
+  width: ${props => props.width || '100%'};
+  padding: 0 20px;
   margin-top: ${props => props.marginTop || '0px'};
   background-color: ${props => props.backgroundColor || 'transparent'};
 `
@@ -118,6 +119,7 @@ export const StyledContainerImage = styled.View<IContainerImage>`
 export const StyledImage = styled.Image`
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 `
 export const StyledSwitch = styled.Switch`
   
@@ -130,6 +132,5 @@ export const StyledModal = styled.Modal`
 `
 export const StyledFlatList = styled.FlatList`
   width: 100%;
-  padding: 0 5%;
-  margin-top: 10px;
+  padding: 10px 20px 0;
 `

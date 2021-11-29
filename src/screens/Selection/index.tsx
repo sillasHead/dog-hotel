@@ -35,7 +35,10 @@ export function Selection({ navigation }: Props) {
     <>
       <StyledContainer justifyContent="flex-start">
         <StyledContainerImage>
-          <StyledImage source={{ uri: 'https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg' }} style={{ resizeMode: 'contain' }} />
+          <StyledImage 
+            source={{ uri: 'https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg' }} 
+            style={{ resizeMode: 'contain' }} 
+          />
         </StyledContainerImage>
 
         <StyledView marginTop="50px">

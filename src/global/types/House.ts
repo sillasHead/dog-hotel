@@ -1,0 +1,4 @@
+type House = {
+  id: number
+  
+}

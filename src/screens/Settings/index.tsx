@@ -26,26 +26,28 @@ export function Settings({ navigation }: Props) {
   return (
     <>
       <StyledContainer>
-        <StyledTouchableOpacity onPress={toggleSwitch}>
-          <StyledView flexDirection="row" alignItems="center">
-            <StyledTitle>
-              Tema Escuro
-            </StyledTitle>
-            <StyledSwitch
-              trackColor={{ false: theme.dark.gray600, true: theme.dark.greenGrayDisabled }}
-              thumbColor={isEnabled ? theme.dark.green : theme.dark.gray400}
-              ios_backgroundColor={theme.dark.gray600}
-              onValueChange={toggleSwitch}
-              value={isEnabled}
-            />
-          </StyledView>
+        <StyledTouchableOpacity onPress={toggleSwitch}
+          style={{
+            flexDirection: "row"
+          }}
+        >
+          <Button type="text">
+            Tema Escuro
+          </Button>
+          <StyledSwitch
+            trackColor={{ false: theme.dark.gray600, true: theme.dark.greenGrayDisabled }}
+            thumbColor={isEnabled ? theme.dark.green : theme.dark.gray400}
+            ios_backgroundColor={theme.dark.gray600}
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
         </StyledTouchableOpacity>
 
-        <StyledLine />
+        {/* <StyledLine /> */}
 
-        <Button type="text">
+        {/* <Button type="text">
           Ser Anfitrião
-        </Button>
+        </Button> */}
 
         <StyledLine />
 

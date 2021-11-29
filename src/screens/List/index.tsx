@@ -3,12 +3,12 @@ import { ListRenderItemInfo } from 'react-native'
 import { Footer } from 'components/Footer'
 import { StyledContainer, StyledFlatList, StyledInput, StyledView } from 'global/styles/components'
 import { theme } from 'global/styles/theme'
-import { Dog } from 'global/types/dog'
+import { User } from 'global/types/User'
 import { ListItem } from 'screens/ListItem'
 
 export function List({ navigation }: any) {
 
-  const [dogs, setDogs] = useState<Dog[]>(apiData)
+  const [dogs, setDogs] = useState<User[]>(apiData)
 
   function handleGoSettings() {
     navigation.navigate('Settings')
@@ -17,19 +17,20 @@ export function List({ navigation }: any) {
   return (
     <>
       <StyledContainer justifyContent="flex-start">
-        <StyledView style={{ backgroundColor: theme.dark.black }}>
+        <StyledView marginTop="40px">
           <StyledInput placeholder="Digite sua localização" placeholderTextColor={theme.dark.gray400} />
         </StyledView>
         <StyledFlatList<ElementType>
           columnWrapperStyle={{ justifyContent: 'space-between' }}
           data={dogs}
           numColumns={2}
-          renderItem={({ item }: ListRenderItemInfo<Dog>) => <ListItem item={item} />}
+          renderItem={({ item }: ListRenderItemInfo<User>) => <ListItem item={item} />}
         />
       </StyledContainer>
       <Footer
         goSettings={handleGoSettings}
-        goHomeDisabled
+        goHomeDisabled 
+        // goBackDisabled TODO
         goBack={() => navigation.goBack()}
       />
     </>
@@ -74,5 +75,5 @@ const apiData = [
   { id: 35, name: 'Cachorro', },
   { id: 36, name: 'Gato', },
 
-] as Dog[]
+] as User[]
 

@@ -23,3 +23,5 @@ Na raíz do projeto:
 ```yarn install ```
 4. Execução do projeto:
 ```yarn start```
+5. Execução do servidor:
+```yarn server```
