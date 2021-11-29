@@ -1,4 +1,5 @@
-import React, { ElementType, useRef } from 'react'
+import { Button } from 'components/Button'
+import { Footer } from 'components/Footer'
 import {
   StyledContainer,
   StyledInput,
@@ -6,9 +7,10 @@ import {
   StyledView
 } from 'global/styles/components'
 import { theme } from 'global/styles/theme'
-import { Button } from 'components/Button'
-import { Footer } from 'components/Footer'
-import { TextInput } from 'react-native'
+import { User } from 'global/types/User'
+import React, { useState } from 'react'
+import { getUsers, postUser } from 'services/userService'
+import axios from 'axios'
 
 type Props = {
   update?: boolean
@@ -17,9 +19,10 @@ type Props = {
 
 export function Customer({ update, navigation }: Props) {
 
-  const inputNameRef = useRef<TextInput>(null)
-  const inputPhoneRef = useRef<TextInput>(null)
-  const inputEmailRef = useRef<TextInput>(null)
+  const [inputName, setInputName] = useState('')
+  const [inputPhone, setInputPhone] = useState('')
+  const [inputEmail, setInputEmail] = useState('')
+  const [inputPassword, setInputPassword] = useState('')
 
   function handleGoBack() {
     navigation.goBack()
@@ -33,8 +36,26 @@ export function Customer({ update, navigation }: Props) {
     navigation.navigate('Settings')
   }
 
-  function test() {
-    console.log(inputEmailRef.current?.props.value)
+  function submit() {
+    const user: User = {
+      name: inputName,
+      phone: inputPhone,
+      email: inputEmail,
+      password: inputPassword
+    }
+
+    console.log(inputName)
+    console.log(inputPhone)
+    console.log(inputEmail)
+    console.log(inputPassword)
+
+    postUser(user)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   return (
@@ -43,29 +64,30 @@ export function Customer({ update, navigation }: Props) {
         <StyledTitle>{update ? 'Atualizar dados' : 'Novo cadastro'}</StyledTitle>
 
         <StyledView>
-          <StyledInput<ElementType>
+          <StyledInput
             placeholder="Nome Completo"
             placeholderTextColor={theme.dark.gray400}
-            ref={inputNameRef}
+            onChangeText={setInputName}
           />
-          <StyledInput<ElementType>
+          <StyledInput
             placeholder="Telefone"
             placeholderTextColor={theme.dark.gray400}
-            ref={inputPhoneRef}
+            onChangeText={setInputPhone}
           />
-          <StyledInput<ElementType>
+          <StyledInput
             placeholder="Login"
             placeholderTextColor={theme.dark.gray400}
-            ref={inputEmailRef}
+            onChangeText={setInputEmail}
           />
           <StyledInput
             placeholder="Senha" secureTextEntry
             placeholderTextColor={theme.dark.gray400}
+            onChangeText={setInputPassword}
           />
         </StyledView>
 
         <StyledView>
-          <Button stretch onPress={test}>
+          <Button stretch onPress={submit}>
             {update ? 'Atualizar' : 'Cadastrar'}
           </Button>
         </StyledView>

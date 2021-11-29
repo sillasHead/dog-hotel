@@ -25,3 +25,13 @@ Na raíz do projeto:
 ```yarn start```
 5. Execução do servidor:
 ```yarn server```
+
+> Obs: Atente-se! A connection deve estar na opção "LAN" para que o servidor funcione corretamente.
+
+## Integrantes
+
+- Danilo da Silva Ranéa
+- João Vitor Maldonado Roschel
+- Paulo Henrique Honorato de Souza
+- Paulo Henrique Nogueira Costa
+- Sillas Cavalcante Lopes Pinto

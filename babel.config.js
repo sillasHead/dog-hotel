@@ -17,7 +17,9 @@ module.exports = {
           components: "./src/components",
           global: "./src/global",
           routes: "./src/routes",
-          screens: "./src/screens"
+          screens: "./src/screens",
+          services: "./src/services",
+          utils: "./src/utils"
         }
       }
     ]

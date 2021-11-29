@@ -4,47 +4,121 @@
       "id": 1,
       "name": "Andrew",
       "cpf": "12345678901",
-      "email": "Brazil",
+      "email": "andrew@email.com",
       "password": "123456"
     },
     {
       "id": 2,
       "name": "Julio",
       "cpf": "12345678901",
-      "email": "Canadá",
+      "email": "julio@email.com",
       "password": "123456"
+    },
+    {
+      "name": "Marcos",
+      "cpf": "12345678901",
+      "email": "marcos@email.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "sillas",
+      "phone": "123456",
+      "email": "sillas@email",
+      "password": "123456",
+      "id": 4
     }
   ],
   "houses": [
     {
       "id": 1,
       "imageUrl": "https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg",
-      "address": "Rua 1"
+      "address": "Rua 1",
+      "ratings": [
+        {
+          "userId": 1,
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 4
+        }
+      ]
     },
     {
       "id": 2,
       "imageUrl": "https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg",
-      "address": "Rua 2"
+      "address": "Rua 2",
+      "ratings": [
+        {
+          "userId": 1,
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 4
+        }
+      ]
     },
     {
       "id": 3,
       "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG91c2V8ZW58MHx8MHx8&w=1000&q=80",
-      "address": "Rua 3"
+      "address": "Rua 3",
+      "ratings": [
+        {
+          "userId": 1,
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 4
+        }
+      ]
     },
     {
       "id": 4,
       "imageUrl": "https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607",
-      "address": "Rua 4"
+      "address": "Rua 4",
+      "ratings": [
+        {
+          "userId": 1,
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 4
+        }
+      ]
     },
     {
       "id": 5,
       "imageUrl": "https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg",
-      "address": "Rua 5"
+      "address": "Rua 5",
+      "ratings": [
+        {
+          "userId": 1,
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 4
+        }
+      ]
     },
     {
       "id": 6,
       "imageUrl": "https://archello.s3.eu-central-1.amazonaws.com/images/2019/04/10/modern-house-in-moscow-1.1554930809.2534.jpg",
-      "address": "Rua 6"
+      "address": "Rua 6",
+      "ratings": [
+        {
+          "userId": 1,
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "rating": 4
+        }
+      ]
     }
   ]
 }
