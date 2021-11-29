@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button } from '../../components/Button'
-import { Container, Input, Title, View } from '../../global/styles/components'
-import { theme } from '../../global/styles/theme'
+import { Button } from 'components/Button'
+import { StyledContainer, StyledInput, StyledTitle, StyledView } from 'global/styles/components'
+import { theme } from 'global/styles/theme'
 
 type Props = {
   update?: boolean
@@ -9,29 +9,29 @@ type Props = {
 
 export function House({ update }: Props) {
   return (
-    <Container>
-      <Title>{update ? 'Atualizar casa' : 'Cadastrar casa'}</Title>
+    <StyledContainer>
+      <StyledTitle>{update ? 'Atualizar casa' : 'Cadastrar casa'}</StyledTitle>
 
-      <View>
-        <Input placeholder="Tipo de estabelecimento" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Rua" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Número" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Complemento" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Telefone" placeholderTextColor={theme.dark.gray400} />
-      </View>
+      <StyledView>
+        <StyledInput placeholder="Tipo de estabelecimento" placeholderTextColor={theme.dark.gray400} />
+        <StyledInput placeholder="Rua" placeholderTextColor={theme.dark.gray400} />
+        <StyledInput placeholder="Número" placeholderTextColor={theme.dark.gray400} />
+        <StyledInput placeholder="Complemento" placeholderTextColor={theme.dark.gray400} />
+        <StyledInput placeholder="Telefone" placeholderTextColor={theme.dark.gray400} />
+      </StyledView>
 
       {/* TODO Adicionar container de imagem da casa */}
-      <View>
+      <StyledView>
         <Button type="outline">
             Carregar foto de casa
         </Button>
-      </View>
+      </StyledView>
 
-      <View>
+      <StyledView>
         <Button type="content">
             {update ? 'Atualizar' : 'Cadastrar'}
         </Button>
-      </View>
-    </Container>
+      </StyledView>
+    </StyledContainer>
   )
 }

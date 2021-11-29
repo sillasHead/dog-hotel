@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
-import { Button } from '../../components/Button'
-import { Footer } from '../../components/Footer'
-import { Container, Line, Switch, Title, TouchableOpacity, View } from '../../global/styles/components'
-import { theme } from '../../global/styles/theme'
+import { Button } from 'components/Button'
+import { Footer } from 'components/Footer'
+import {
+  StyledContainer,
+  StyledLine,
+  StyledSwitch,
+  StyledTitle,
+  StyledTouchableOpacity,
+  StyledView
+} from 'global/styles/components'
+import { theme } from 'global/styles/theme'
 
 type Props = {
   navigation: any
@@ -15,45 +22,45 @@ export function Settings({ navigation }: Props) {
   function handleGoHome() {
     navigation.navigate('List')
   }
-  
+
   return (
     <>
-      <Container>
-        <TouchableOpacity onPress={toggleSwitch}>
-          <View flexDirection="row" alignItems="center">
-            <Title>
+      <StyledContainer>
+        <StyledTouchableOpacity onPress={toggleSwitch}>
+          <StyledView flexDirection="row" alignItems="center">
+            <StyledTitle>
               Tema Escuro
-            </Title>
-            <Switch
+            </StyledTitle>
+            <StyledSwitch
               trackColor={{ false: theme.dark.gray600, true: theme.dark.greenGrayDisabled }}
               thumbColor={isEnabled ? theme.dark.green : theme.dark.gray400}
               ios_backgroundColor={theme.dark.gray600}
               onValueChange={toggleSwitch}
               value={isEnabled}
             />
-          </View>
-        </TouchableOpacity>
+          </StyledView>
+        </StyledTouchableOpacity>
 
-        <Line />
-
-        <Button type="text">
-            Ser Anfitrião
-        </Button>
-
-        <Line />
+        <StyledLine />
 
         <Button type="text">
-            Alterar Dados
+          Ser Anfitrião
         </Button>
 
-        <Line />
-        
+        <StyledLine />
+
+        <Button type="text">
+          Alterar Dados
+        </Button>
+
+        <StyledLine />
+
         <Button textColor="red" type="text">
-            Sair da Conta
+          Sair da Conta
         </Button>
-      </Container>
+      </StyledContainer>
       <Footer
-        goSettingsDisabled       
+        goSettingsDisabled
         goHome={handleGoHome}
         goBack={() => navigation.goBack()}
       />

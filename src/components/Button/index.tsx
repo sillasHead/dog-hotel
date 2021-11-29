@@ -1,13 +1,13 @@
 import React from 'react'
 import { TouchableOpacityProps } from 'react-native'
 import {
-  TextButtonContent,
-  TextButtonOutline,
-  TextButtonText,
-  ButtonContent,
-  ButtonOutline,
-  ButtonText
-} from '../../global/styles/components'
+  StyledTextButtonContent,
+  StyledTextButtonOutline,
+  StyledTextButtonText,
+  StyledButtonContent,
+  StyledButtonOutline,
+  StyledButtonText
+} from 'global/styles/components'
 
 interface Props extends TouchableOpacityProps {
   children: React.ReactNode
@@ -20,21 +20,21 @@ export function Button({ children, stretch = false, type = 'content', textColor 
   switch (type) {
     case 'content':
       return (
-        <ButtonContent {...props} stretch={stretch}>
-          <TextButtonContent>{children}</TextButtonContent>
-        </ButtonContent>
+        <StyledButtonContent {...props} stretch={stretch}>
+          <StyledTextButtonContent>{children}</StyledTextButtonContent>
+        </StyledButtonContent>
       )
     case 'outline':
       return (
-        <ButtonOutline {...props} stretch={stretch}>
-          <TextButtonOutline>{children}</TextButtonOutline>
-        </ButtonOutline>
+        <StyledButtonOutline {...props} stretch={stretch}>
+          <StyledTextButtonOutline>{children}</StyledTextButtonOutline>
+        </StyledButtonOutline>
       )
     case 'text':
       return (
-        <ButtonText {...props} stretch={stretch}>
-          <TextButtonText color={textColor}>{children}</TextButtonText>
-        </ButtonText>
+        <StyledButtonText {...props} stretch={stretch}>
+          <StyledTextButtonText color={textColor}>{children}</StyledTextButtonText>
+        </StyledButtonText>
       )
   }
 }

@@ -1,12 +1,12 @@
 import React from 'react'
-import { View } from '../../global/styles/components'
-import Home from '../../assets/home.svg'
-import HomeDisabled from '../../assets/home-disabled.svg'
-import Goback from '../../assets/goback.svg'
-import GobackDisabled from '../../assets/goback-disabled.svg'
-import Settings from '../../assets/settings.svg'
-import SettingsDisabled from '../../assets/settings-disabled.svg'
-import { theme } from '../../global/styles/theme'
+import { StyledView } from 'global/styles/components'
+import Home from 'assets/home.svg'
+import HomeDisabled from 'assets/home-disabled.svg'
+import Goback from 'assets/goback.svg'
+import GobackDisabled from 'assets/goback-disabled.svg'
+import Settings from 'assets/settings.svg'
+import SettingsDisabled from 'assets/settings-disabled.svg'
+import { theme } from 'global/styles/theme'
 import { TouchableOpacity } from 'react-native'
 
 type Props = {
@@ -20,7 +20,7 @@ type Props = {
 
 export function Footer({ goBackDisabled, goHomeDisabled, goSettingsDisabled, goBack, goSettings, goHome }: Props) {
   return (
-    <View
+    <StyledView
       heigth="50px"
       width="100%"
       flexDirection="row"
@@ -43,6 +43,6 @@ export function Footer({ goBackDisabled, goHomeDisabled, goSettingsDisabled, goB
         : <TouchableOpacity onPress={goSettings}>
           <Settings />
         </TouchableOpacity>}
-    </View>
+    </StyledView>
   )
 }

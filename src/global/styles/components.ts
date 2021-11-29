@@ -29,13 +29,13 @@ interface IContainerImage {
   marginBottom?: string
 }
 
-export const Container = styled.View<IContainer>`
+export const StyledContainer = styled.View<IContainer>`
   flex: 1;
   align-items: center;
   justify-content: ${props => props.justifyContent || 'center'};
   background-color: ${theme.dark.gray800};
 `
-export const View = styled.View<IView>`
+export const StyledView = styled.View<IView>`
   align-items: ${props => props.alignItems || 'center'};
   justify-content: ${props => props.justifyContent || 'center'};
   flex-direction: ${props => props.flexDirection || 'column'};
@@ -44,15 +44,15 @@ export const View = styled.View<IView>`
   margin-top: ${props => props.marginTop || '0px'};
   background-color: ${props => props.backgroundColor || 'transparent'};
 `
-export const Text = styled.Text`
+export const StyledText = styled.Text`
   color: ${theme.dark.white};
 `
-export const Title = styled.Text<ITitle>`
+export const StyledTitle = styled.Text<ITitle>`
   font-family: ${fonts.black};
   color: ${props => theme.dark[props.color || 'gray400']};
   font-size: 20px;
 `
-export const Input = styled.TextInput`
+export const StyledInput = styled.TextInput`
   width: 100%;
   color: ${theme.dark.white};
   border-color: ${theme.dark.gray400};
@@ -61,8 +61,10 @@ export const Input = styled.TextInput`
   padding: 10px;
   margin: 10px;
 `
-export const TouchableOpacity = styled.TouchableOpacity``
-export const ButtonContent = styled.TouchableOpacity<IButton>`
+export const StyledTouchableOpacity = styled.TouchableOpacity`
+  margin-bottom: 20px;
+`
+export const StyledButtonContent = styled.TouchableOpacity<IButton>`
   width: ${props => props.stretch ? '100%' : 'auto'};
   align-items: center;
   background-color: ${theme.dark.green};
@@ -72,7 +74,7 @@ export const ButtonContent = styled.TouchableOpacity<IButton>`
   padding: 10px;
   margin: 10px;
   `
-export const ButtonOutline = styled.TouchableOpacity<IButton>`
+export const StyledButtonOutline = styled.TouchableOpacity<IButton>`
   width: ${props => props.stretch ? '100%' : 'auto'};
   align-items: center;
   border-color: ${theme.dark.green};
@@ -81,51 +83,53 @@ export const ButtonOutline = styled.TouchableOpacity<IButton>`
   padding: 10px;
   margin: 10px;
   `
-export const ButtonText = styled.TouchableOpacity<IButton>`
+export const StyledButtonText = styled.TouchableOpacity<IButton>`
   width: ${props => props.stretch ? '100%' : 'auto'};
   align-items: center;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
 `
-export const TextButtonContent = styled.Text`
+export const StyledTextButtonContent = styled.Text`
   color: ${theme.dark.gray800};
   font-family: ${fonts.black};
 `
-export const TextButtonOutline = styled.Text`
+export const StyledTextButtonOutline = styled.Text`
   color: ${theme.dark.green};
   font-family: ${fonts.black};
 `
-export const TextButtonText = styled.Text<IText>`
+export const StyledTextButtonText = styled.Text<IText>`
   font-family: ${fonts.black};
   color: ${props => theme.dark[props.color || 'gray400']};
   font-size: 20px;
 `
-export const Line = styled.View`
+export const StyledLine = styled.View`
   width: 90%;
   height: 1px;
   margin: 20px;
   background: ${theme.dark.gray400};
 `
-export const ContainerImage = styled.View<IContainerImage>`
+export const StyledContainerImage = styled.View<IContainerImage>`
   width: ${props => props.width || '100%'};
   height: ${props => props.height || '400px'};
   background: ${theme.dark.black};
   margin-bottom: ${props => props.marginBottom || '0px'};
 `
-export const Image = styled.Image`
+export const StyledImage = styled.Image`
   width: 100%;
   height: 100%;
 `
-export const Switch = styled.Switch`
+export const StyledSwitch = styled.Switch`
   
 `
-export const Modal = styled.Modal`
+export const StyledModal = styled.Modal`
   width: 60%;
   height: 30%;
   background-color: red;
   position: absolute;
 `
-export const FlatList = styled.FlatList`
+export const StyledFlatList = styled.FlatList`
   width: 100%;
+  padding: 0 5%;
+  margin-top: 10px;
 `

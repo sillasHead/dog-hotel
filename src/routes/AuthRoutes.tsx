@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Customer } from 'screens/Customer'
+import { House } from 'screens/House'
+import { List } from 'screens/List'
+import { Selection } from 'screens/Selection'
+import { Settings } from 'screens/Settings'
+import { SignIn } from 'screens/SignIn'
 import React from 'react'
-import { Customer } from '../screens/Customer'
-import { House } from '../screens/House'
-import { List } from '../screens/House/List'
-import { Selection } from '../screens/House/Selection'
-import { Settings } from '../screens/Settings'
-import { SignIn } from '../screens/SignIn'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 

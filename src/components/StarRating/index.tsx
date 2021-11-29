@@ -1,12 +1,9 @@
 import React from 'react'
-import { theme } from '../../global/styles/theme'
-import { Container, Text } from './styles'
+import { theme } from 'global/styles/theme'
 import StarRating from 'react-native-star-rating'
+import { StyledText, StyledView } from 'global/styles/components'
 
 export function StarRatingt() {
-  function ratingCompleted(rating: number) {
-    console.log("Rating is: " + rating)
-  }
 
   const [rating, setRating] = React.useState(0)
  
@@ -15,8 +12,8 @@ export function StarRatingt() {
   }
 
   return (
-    <Container>
-      <Text>Avaliação</Text>
+    <StyledView>
+      <StyledText>Avaliação</StyledText>
       <StarRating
         disabled={false}
         maxStars={5}
@@ -25,6 +22,6 @@ export function StarRatingt() {
         animation="bounce"
         fullStarColor={theme.dark.yellow}
       />
-    </Container>
+    </StyledView>
   )
 }

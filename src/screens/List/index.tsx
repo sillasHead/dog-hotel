@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Footer } from '../../../components/Footer'
-import { Container, FlatList, Input, View } from '../../../global/styles/components'
-import { theme } from '../../../global/styles/theme'
-import { Dog } from '../../../global/types/dog'
-import { ListItem } from '../ListItem'
-import { Selection } from '../Selection'
+import React, { ElementType, useState } from 'react'
+import { ListRenderItemInfo } from 'react-native'
+import { Footer } from 'components/Footer'
+import { StyledContainer, StyledFlatList, StyledInput, StyledView } from 'global/styles/components'
+import { theme } from 'global/styles/theme'
+import { Dog } from 'global/types/dog'
+import { ListItem } from 'screens/ListItem'
 
 export function List({ navigation }: any) {
 
@@ -14,25 +14,19 @@ export function List({ navigation }: any) {
     navigation.navigate('Settings')
   }
 
-  function handleGoSelection() {
-    navigation.navigate(Selection.name)
-  }
-
   return (
     <>
-      <Container justifyContent="flex-start">
-        <View marginTop="50px" width="100%">
-          <View>
-            <Input placeholder="Digite sua localização" placeholderTextColor={theme.dark.gray400} />
-          </View>
-          <FlatList
-            columnWrapperStyle={{ justifyContent: 'space-between' }}
-            data={dogs}
-            numColumns={2}
-            renderItem={({ item }: any) => (<ListItem goSelection={handleGoSelection} key={item.id} />)} // TODO ajustar tipagem do item
-          />
-        </View>
-      </Container>
+      <StyledContainer justifyContent="flex-start">
+        <StyledView style={{ backgroundColor: theme.dark.black }}>
+          <StyledInput placeholder="Digite sua localização" placeholderTextColor={theme.dark.gray400} />
+        </StyledView>
+        <StyledFlatList<ElementType>
+          columnWrapperStyle={{ justifyContent: 'space-between' }}
+          data={dogs}
+          numColumns={2}
+          renderItem={({ item }: ListRenderItemInfo<Dog>) => <ListItem item={item} />}
+        />
+      </StyledContainer>
       <Footer
         goSettings={handleGoSettings}
         goHomeDisabled

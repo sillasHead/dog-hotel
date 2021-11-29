@@ -1,13 +1,13 @@
 import React from 'react'
 import { StatusBar } from 'react-native'
-import Logo from '../../assets/logo.svg'
-import { Button } from '../../components/Button'
+import Logo from 'assets/logo.svg'
+import { Button } from 'components/Button'
 import {
-  Container,
-  Input,
-  View
-} from '../../global/styles/components'
-import { theme } from '../../global/styles/theme'
+  StyledContainer,
+  StyledInput,
+  StyledView
+} from 'global/styles/components'
+import { theme } from 'global/styles/theme'
 
 type Props = {
   navigation: any
@@ -23,7 +23,7 @@ export function SignIn({ navigation }: Props) {
   }
 
   return (
-    <Container>
+    <StyledContainer>
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparent"
@@ -31,15 +31,15 @@ export function SignIn({ navigation }: Props) {
       />
       <Logo />
 
-      <View marginTop="50px">
-        <Input placeholder="Login" placeholderTextColor={theme.dark.gray400} />
-        <Input placeholder="Senha" secureTextEntry placeholderTextColor={theme.dark.gray400} />
-      </View>
+      <StyledView marginTop="50px">
+        <StyledInput placeholder="Login" placeholderTextColor={theme.dark.gray400} />
+        <StyledInput placeholder="Senha" secureTextEntry placeholderTextColor={theme.dark.gray400} />
+      </StyledView>
 
-      <View marginTop="50px">
+      <StyledView marginTop="50px">
           <Button stretch onPress={handleEnter}>Entrar</Button>
           <Button stretch type="outline" onPress={handleNewAccount}>Criar nova conta</Button>
-      </View>
-    </Container>
+      </StyledView>
+    </StyledContainer>
   )
 }
