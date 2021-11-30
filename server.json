@@ -33,7 +33,7 @@
     {
       "id": 1,
       "imageUrl": "https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg",
-      "address": "Rua 1",
+      "address": "Rua Casa do Ator, 1",
       "owner": {
         "name": "Marco",
         "phone": "(11) 9 9999 9999",
@@ -41,27 +41,15 @@
       },
       "ratings": [
         {
-          "userId": 1,
-          "rating": 5
-        },
-        {
-          "userId": 2,
-          "rating": 4
-        },
-        {
           "userId": 4,
           "rating": 3
-        },
-        {
-          "userId": 4,
-          "rating": 4
         }
       ]
     },
     {
       "id": 2,
       "imageUrl": "https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg",
-      "address": "Rua 2",
+      "address": "Rua George Hom, 2",
       "owner": {
         "name": "Julio",
         "phone": "(11) 9 9999 9999",
@@ -81,7 +69,7 @@
     {
       "id": 3,
       "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG91c2V8ZW58MHx8MHx8&w=1000&q=80",
-      "address": "Rua 3",
+      "address": "Rua Eduardo Souza Aranha, 3",
       "owner": {
         "name": "Marcos",
         "phone": "(11) 9 9999 9999",
@@ -101,7 +89,7 @@
     {
       "id": 4,
       "imageUrl": "https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607",
-      "address": "Rua 4",
+      "address": "Av Antonia Pazzinato Sturion, 4",
       "owner": {
         "name": "Sillas",
         "phone": "(11) 9 9999 9999",
@@ -121,7 +109,7 @@
     {
       "id": 5,
       "imageUrl": "https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg",
-      "address": "Rua 5",
+      "address": "Rua Jesuino Arruda, 5",
       "owner": {
         "name": "Maria",
         "phone": "(11) 9 9999 9999",
@@ -141,7 +129,7 @@
     {
       "id": 6,
       "imageUrl": "https://archello.s3.eu-central-1.amazonaws.com/images/2019/04/10/modern-house-in-moscow-1.1554930809.2534.jpg",
-      "address": "Rua 6",
+      "address": "Rua Botucatu, 6",
       "owner": {
         "name": "Amanda",
         "phone": "(11) 9 9999 9999",
