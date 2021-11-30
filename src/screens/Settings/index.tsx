@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
 import { Button } from 'components/Button'
 import { Footer } from 'components/Footer'
+import { useUser } from 'context/User'
 import {
   StyledContainer,
   StyledLine,
-  StyledSwitch,
-  StyledTitle,
-  StyledTouchableOpacity,
-  StyledView
+  StyledSwitch, 
+  StyledTouchableOpacity
 } from 'global/styles/components'
 import { theme } from 'global/styles/theme'
-import { useUser } from 'context/User'
+import React, { useState } from 'react'
 
 type Props = {
   navigation: any
 }
 
 export function Settings({ navigation }: Props) {
-  const [isEnabled, setIsEnabled] = useState(false)
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+  const [isEnabled, setIsEnabled] = useState(true)
+  const toggleSwitch = () => {
+    setIsEnabled(!isEnabled)
+  }
 
   const { setUser } = useUser()
 
@@ -56,12 +56,6 @@ export function Settings({ navigation }: Props) {
             value={isEnabled}
           />
         </StyledTouchableOpacity>
-
-        {/* <StyledLine /> */}
-
-        {/* <Button type="text"> // TODO
-          Ser Anfitrião 
-        </Button> */}
 
         <StyledLine />
 

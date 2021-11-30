@@ -1,7 +1,6 @@
-import React from 'react'
 import { Button } from 'components/Button'
 import { Footer } from 'components/Footer'
-import { StarRatingt } from 'components/StarRating'
+import { useUser } from 'context/User'
 import {
   StyledContainer,
   StyledContainerImage,
@@ -11,17 +10,21 @@ import {
   StyledTitle,
   StyledView
 } from 'global/styles/components'
+import { House } from 'global/types/House'
+import React, { useState } from 'react'
+import { Alert } from 'react-native'
+import StarRating from 'react-native-star-rating-widget'
+import { HouseService } from 'services/houseService'
 
 type Props = {
   navigation: any
+  route: any
 }
 
-export function Selection({ navigation }: Props) {
-  // const [modalVisible, setModalVisible] = useState(false)
-
-  // function handleModal() {
-  //   setModalVisible(x => !x)
-  // }
+export function Selection({ navigation, route }: Props) {
+  const house: House = route.params.house
+  const { user } = useUser()
+  const [rating, setRating] = useState(0)
 
   function handleGoSettings() {
     navigation.navigate('Settings')
@@ -31,39 +34,68 @@ export function Selection({ navigation }: Props) {
     navigation.navigate('List')
   }
 
+  function handleToAssess() {
+    HouseService.get(house.id)
+      .then(response => {
+        const house = response.data as House
+        user?.id && house.ratings.push({
+          userId: user.id,
+          rating: rating
+        })
+        HouseService.put(house)
+          .then(() => {
+            Alert.alert('Avaliação realizada com sucesso!')
+          })
+          .catch(error => {
+            console.log('error HouseService.put(house) => ', error)
+          })
+      })
+      .catch(error => {
+        console.log('error HouseService.get(house.id) => ', error)
+      })
+  }
+
+  function handleToSelect () {
+    Alert.alert('O anfitrião entrará em contato com você em breve! :)')
+  }
+
   return (
     <>
       <StyledContainer justifyContent="flex-start">
         <StyledContainerImage>
-          <StyledImage 
-            source={{ uri: 'https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg' }} 
-            style={{ resizeMode: 'contain' }} 
+          <StyledImage
+            source={{ uri: 'https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg' }}
+            style={{ resizeMode: 'contain' }}
           />
         </StyledContainerImage>
 
-        <StyledView marginTop="50px">
+        <StyledView marginTop="30px">
           <StyledTitle color="green">Nome do Anfitrião</StyledTitle>
-          <StyledText>Sillas Cavalcante</StyledText>
+          <StyledText>{house.owner.name}</StyledText>
+        </StyledView>
+
+        <StyledView marginTop="30px">
+          <StyledTitle color="green">Contato</StyledTitle>
+          <StyledText>{house.owner.phone}</StyledText>
+          <StyledText>{house.owner.email}</StyledText>
         </StyledView>
 
         <StyledLine />
 
         <StyledView flexDirection="row" justifyContent="space-between">
-          <StarRatingt />
-          <Button /* onPress={handleModal} */>Avaliar</Button>
+          <StyledView width="auto" style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <StarRating
+              rating={rating}
+              onChange={setRating}
+            />
+          </StyledView>
+          <Button onPress={handleToAssess}>Avaliar</Button>
         </StyledView>
 
         <StyledLine />
 
-        <StyledView>
-          <StyledTitle color="green">Contato</StyledTitle>
-          <StyledText>(11) 2536-8596</StyledText>
-          <StyledText>(11) 99999-6886</StyledText>
-          <StyledText>sillas@email.com</StyledText>
-        </StyledView>
-
         <StyledView marginTop="10px">
-          <Button stretch>Selecionar Casa</Button>
+          <Button stretch onPress={handleToSelect}>Selecionar Casa</Button>
         </StyledView>
 
       </StyledContainer>

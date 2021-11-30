@@ -8,7 +8,6 @@ import {
   StyledView
 } from 'global/styles/components'
 import { theme } from 'global/styles/theme'
-import { User } from 'global/types/User'
 import React, { useEffect, useState } from 'react'
 import { Alert } from 'react-native'
 import { UserService } from 'services/userService'
@@ -19,17 +18,22 @@ type Props = {
 }
 
 export function NewUser({ navigation, route }: Props) {
-  const { update } = route.params
+  const update: boolean = route.params.update
 
   const [inputName, setInputName] = useState('')
   const [inputPhone, setInputPhone] = useState('')
   const [inputEmail, setInputEmail] = useState('')
   const [inputPassword, setInputPassword] = useState('')
 
-  const { setUser } = useUser()
+  const { user, setUser } = useUser()
 
   useEffect(() => {
-    console.log(update)
+    if (update && user) {
+      setInputName(user.name)
+      setInputPhone(user.phone)
+      setInputEmail(user.email)
+      setInputPassword(user.password)
+    }
   }, [])
 
   function handleGoBack() {
@@ -48,31 +52,58 @@ export function NewUser({ navigation, route }: Props) {
     if (!inputName || !inputPhone || !inputEmail || !inputPassword) {
       Alert.alert('Preencha todos os campos')
       return
-    } // TODO
-    const user: User = {
+    } 
+
+    console.log({
       name: inputName,
       phone: inputPhone,
       email: inputEmail,
       password: inputPassword
-    }
+    })
 
-    UserService.checkEmail(user.email)
-      .then(response => {
-        if (response.data[0]) {
-          Alert.alert('Email já cadastrado')
-        }
-        else {
-          UserService.postUser(user)
-            .then(response => {
-              setUser(response.data)
-              handleGoHome()
-            })
-            .catch(error => {
-              console.log('error UserService.postUser(user) => ', error)
-            })
-        }
+    if (update && user) {
+      UserService.put({
+        id: user.id,
+        name: inputName,
+        phone: inputPhone,
+        email: inputEmail,
+        password: inputPassword
       })
-      .catch(error => console.log('error UserService.checkEmail(user.email) => ', error))
+        .then(() => {
+          Alert.alert('Dados atualizados com sucesso!')
+          setUser({
+            name: inputName,
+            phone: inputPhone,
+            email: inputEmail,
+            password: inputPassword
+          })
+          handleGoHome()
+        })
+        .catch(error => console.log('error UserService.put(user) => ', error))
+    } else if (user) {
+      UserService.checkEmail(user.email)
+        .then(response => {
+          if (response.data[0]) {
+            Alert.alert('Email já cadastrado')
+          }
+          else {
+            UserService.post({
+              name: inputName,
+              phone: inputPhone,
+              email: inputEmail,
+              password: inputPassword
+            })
+              .then(response => {
+                setUser(response.data)
+                handleGoHome()
+              })
+              .catch(error => {
+                console.log('error UserService.postUser(user) => ', error)
+              })
+          }
+        })
+        .catch(error => console.log('error UserService.checkEmail(user.email) => ', error))
+    }
   }
 
   return (
@@ -82,23 +113,27 @@ export function NewUser({ navigation, route }: Props) {
 
         <StyledView>
           <StyledInput
+            defaultValue={inputName}
             placeholder="Nome Completo"
             placeholderTextColor={theme.dark.gray400}
             onChangeText={setInputName}
           />
           <StyledInput
+            defaultValue={inputPhone}
             placeholder="Telefone"
             placeholderTextColor={theme.dark.gray400}
             onChangeText={setInputPhone}
             keyboardType="phone-pad"
           />
           <StyledInput
+            defaultValue={inputEmail}
             placeholder="Login"
             placeholderTextColor={theme.dark.gray400}
             onChangeText={setInputEmail}
           />
           <StyledInput
-            placeholder="Senha" secureTextEntry
+            defaultValue={inputPassword}
+            placeholder={update ? "Nova Senha" : "Senha"} secureTextEntry
             placeholderTextColor={theme.dark.gray400}
             onChangeText={setInputPassword}
           />

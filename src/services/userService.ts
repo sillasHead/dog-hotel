@@ -2,7 +2,7 @@ import { User } from 'global/types/User'
 import { api } from 'utils/api'
 
 export class UserService {
-  static getUsers() {
+  static getAll() {
     return api.get('/users')    
   }
 
@@ -23,15 +23,19 @@ export class UserService {
     })
   }
 
-  static postUser(user: User) {
+  static post(user: User) {
     return api.post('/users', user)
   }
 
-  static getUser(id: number) {
+  static get(id: number) {
     return api.get(`/users/${id}`)
   }
 
-  static putUser(user: User) {
+  static put(user: User) {
     return api.put(`/users/${user.id}`, user)
+  }
+
+  static delete(id: number) {
+    return api.delete(`/users/${id}`)
   }
 }

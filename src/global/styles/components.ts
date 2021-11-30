@@ -112,14 +112,13 @@ export const StyledLine = styled.View`
 `
 export const StyledContainerImage = styled.View<IContainerImage>`
   width: ${props => props.width || '100%'};
-  height: ${props => props.height || '400px'};
+  height: ${props => props.height || '300px'};
   background: ${theme.dark.black};
   margin-bottom: ${props => props.marginBottom || '0px'};
 `
 export const StyledImage = styled.Image`
   width: 100%;
   height: 100%;
-  border-radius: 5px;
 `
 export const StyledSwitch = styled.Switch`
   

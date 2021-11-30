@@ -3,6 +3,7 @@ import {
   StyledContainer,
   StyledFlatList,
   StyledInput,
+  StyledText,
   StyledTouchableOpacity,
   StyledView
 } from 'global/styles/components'
@@ -10,50 +11,79 @@ import { theme } from 'global/styles/theme'
 import { House } from 'global/types/House'
 import React, { ElementType, useEffect, useState } from 'react'
 import { ListRenderItemInfo } from 'react-native'
-import { ListItem } from 'screens/ListItem'
+import { ItemList } from 'screens/ItemList'
 import { HouseService } from 'services/houseService'
 
 export function List({ navigation }: any) {
 
   const [houses, setHouses] = useState<House[]>([])
+  const [housesView, setHousesView] = useState<House[]>([])
+  const [inputLocation, setInputLocation] = useState<string>('')
 
   useEffect(() => {
-    HouseService.getHouses()
+    HouseService.getAll()
       .then(response => {
         setHouses(response.data)
+        setHousesView(response.data)
       })
       .catch(error => console.log("error HouseService.getHouses() => ", error))
   }, [])
+
+  useEffect(() => {
+    loadHouses()
+  }, [inputLocation])
 
   function handleGoSettings() {
     navigation.navigate('Settings')
   }
 
-  function handleGoToSelection() {
-    navigation.navigate('Selection')
+  function handleGoToSelection(item: House) {
+    navigation.navigate('Selection', {
+      house: item
+    })
+  }
+
+  function loadHouses() {
+    if (inputLocation === '') {
+      setHousesView(houses)
+    } else {
+      setHousesView(houses.filter(house => {
+        return house.address.toLowerCase().includes(inputLocation.toLowerCase())
+      }))
+    }
   }
 
   return (
     <>
       <StyledContainer justifyContent="flex-start">
         <StyledView marginTop="40px">
-          <StyledInput placeholder="Digite sua localização" placeholderTextColor={theme.dark.gray400} />
+          <StyledInput
+            placeholder="Digite o nome de uma rua"
+            placeholderTextColor={theme.dark.gray400}
+            onChangeText={setInputLocation}
+          />
         </StyledView>
-        <StyledFlatList<ElementType>
-          columnWrapperStyle={{ justifyContent: 'space-between' }}
-          data={houses}
-          numColumns={2}
-          renderItem={({ item }: ListRenderItemInfo<House>) => (
-            <StyledTouchableOpacity onPress={() => handleGoToSelection()} style={{ width: "45%" }}>
-              <ListItem item={item} />
-            </StyledTouchableOpacity>
-          )}
-        />
+        {housesView.length > 0 ? (
+          <StyledFlatList<ElementType>
+            columnWrapperStyle={{ justifyContent: 'space-between' }}
+            data={housesView}
+            numColumns={2}
+            renderItem={({ item }: ListRenderItemInfo<House>) => (
+              <StyledTouchableOpacity onPress={() => handleGoToSelection(item)} style={{ width: "45%" }}>
+                <ItemList item={item} />
+              </StyledTouchableOpacity>
+            )}
+          />
+        ) : (
+          <StyledText>
+            Nenhuma casa encontrada
+          </StyledText>
+        )}
       </StyledContainer>
       <Footer
         goSettings={handleGoSettings}
         goHomeDisabled
-        // goBackDisabled TODO
+        goBackDisabled
         goBack={() => navigation.goBack()}
       />
     </>

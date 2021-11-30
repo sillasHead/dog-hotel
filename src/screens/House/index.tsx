@@ -20,7 +20,6 @@ export function House({ update }: Props) {
         <StyledInput placeholder="Telefone" placeholderTextColor={theme.dark.gray400} />
       </StyledView>
 
-      {/* TODO Adicionar container de imagem da casa */}
       <StyledView>
         <Button type="outline">
             Carregar foto de casa

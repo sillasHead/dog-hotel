@@ -2,19 +2,19 @@ import { House } from 'global/types/House'
 import { api } from 'utils/api'
 
 export class HouseService {
-  static getHouses() {
+  static getAll() {
     return api.get('/Houses') 
   }
 
-  static postHouse(House: House) {
-    return api.post('/Houses', House)
-  }
-
-  static getHouse(id: number) {
+  static get(id: number) {
     return api.get(`/Houses/${id}`)
   }
 
-  static putHouse(House: House) {
+  // static postHouse(House: House) {
+  //   return api.post('/Houses', House)
+  // } // TODO
+
+  static put(House: House) {
     return api.put(`/Houses/${House.id}`, House)
   }
 }
