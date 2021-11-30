@@ -57,6 +57,7 @@ export function Selection({ navigation, route }: Props) {
 
   function handleToSelect () {
     Alert.alert('O anfitrião entrará em contato com você em breve! :)')
+    handleGoHome()
   }
 
   return (

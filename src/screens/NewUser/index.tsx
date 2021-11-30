@@ -18,7 +18,7 @@ type Props = {
 }
 
 export function NewUser({ navigation, route }: Props) {
-  const update: boolean = route.params.update
+  const update: boolean = route?.params?.update ?? false
 
   const [inputName, setInputName] = useState('')
   const [inputPhone, setInputPhone] = useState('')
@@ -54,13 +54,6 @@ export function NewUser({ navigation, route }: Props) {
       return
     } 
 
-    console.log({
-      name: inputName,
-      phone: inputPhone,
-      email: inputEmail,
-      password: inputPassword
-    })
-
     if (update && user) {
       UserService.put({
         id: user.id,
@@ -80,8 +73,8 @@ export function NewUser({ navigation, route }: Props) {
           handleGoHome()
         })
         .catch(error => console.log('error UserService.put(user) => ', error))
-    } else if (user) {
-      UserService.checkEmail(user.email)
+    } else {
+      UserService.checkEmail(inputEmail)
         .then(response => {
           if (response.data[0]) {
             Alert.alert('Email já cadastrado')
@@ -109,7 +102,7 @@ export function NewUser({ navigation, route }: Props) {
   return (
     <>
       <StyledContainer justifyContent="space-around">
-        <StyledTitle>{route ? 'Atualizar dados' : 'Novo cadastro'}</StyledTitle>
+        <StyledTitle>{update ? 'Atualizar dados' : 'Novo cadastro'}</StyledTitle>
 
         <StyledView>
           <StyledInput
@@ -141,7 +134,7 @@ export function NewUser({ navigation, route }: Props) {
 
         <StyledView>
           <Button stretch onPress={submit}>
-            {route ? 'Atualizar' : 'Cadastrar'}
+            {update ? 'Atualizar' : 'Cadastrar'}
           </Button>
         </StyledView>
       </StyledContainer>
