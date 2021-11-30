@@ -10,6 +10,7 @@ import {
   StyledView
 } from 'global/styles/components'
 import { theme } from 'global/styles/theme'
+import { useUser } from 'context/User'
 
 type Props = {
   navigation: any
@@ -19,8 +20,21 @@ export function Settings({ navigation }: Props) {
   const [isEnabled, setIsEnabled] = useState(false)
   const toggleSwitch = () => setIsEnabled(previousState => !previousState)
 
+  const { setUser } = useUser()
+
   function handleGoHome() {
     navigation.navigate('List')
+  }
+
+  function updateData() {
+    navigation.navigate('NewUser', {
+      update: true
+    })
+  }
+
+  function logout() {
+    setUser(undefined)
+    navigation.navigate('SignIn')
   }
 
   return (
@@ -45,19 +59,19 @@ export function Settings({ navigation }: Props) {
 
         {/* <StyledLine /> */}
 
-        {/* <Button type="text">
-          Ser Anfitrião
+        {/* <Button type="text"> // TODO
+          Ser Anfitrião 
         </Button> */}
 
         <StyledLine />
 
-        <Button type="text">
+        <Button type="text" onPress={updateData}>
           Alterar Dados
         </Button>
 
         <StyledLine />
 
-        <Button textColor="red" type="text">
+        <Button textColor="red" type="text" onPress={logout}>
           Sair da Conta
         </Button>
       </StyledContainer>

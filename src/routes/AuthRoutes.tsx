@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Customer } from 'screens/Customer'
+import { NewUser } from 'screens/NewUser'
 import { House } from 'screens/House'
 import { List } from 'screens/List'
 import { Selection } from 'screens/Selection'
@@ -20,8 +20,8 @@ export function AuthRoutes() {
         }}
       />
       <Screen
-        name={'Customer'}
-        component={Customer}
+        name={'NewUser'}
+        component={NewUser}
         options={{
           headerShown: false,
         }}

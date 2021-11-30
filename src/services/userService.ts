@@ -2,19 +2,36 @@ import { User } from 'global/types/User'
 import { api } from 'utils/api'
 
 export class UserService {
-  static getUsers(): Promise<User[]> {
+  static getUsers() {
     return api.get('/users')    
   }
 
-  static postUser(user: User): Promise<User> {
+  static getLogin(email: string, password: string) {
+    return api.get('/users', {
+      params: {
+        email: email,
+        password: password,
+      }
+    })
+  }
+
+  static checkEmail(email: string) {
+    return api.get('/users', {
+      params: {
+        email: email,
+      }
+    })
+  }
+
+  static postUser(user: User) {
     return api.post('/users', user)
   }
 
-  static getUser(id: number): Promise<User> {
+  static getUser(id: number) {
     return api.get(`/users/${id}`)
   }
 
-  static putUser(user: User): Promise<User> {
+  static putUser(user: User) {
     return api.put(`/users/${user.id}`, user)
   }
 }

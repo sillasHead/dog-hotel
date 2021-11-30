@@ -19,7 +19,8 @@ module.exports = {
           routes: "./src/routes",
           screens: "./src/screens",
           services: "./src/services",
-          utils: "./src/utils"
+          utils: "./src/utils",
+          context: "./src/context"
         }
       }
     ]

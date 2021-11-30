@@ -21,9 +21,8 @@ export function List({ navigation }: any) {
     HouseService.getHouses()
       .then(response => {
         setHouses(response.data)
-        console.log("Success!")
       })
-      .catch(error => console.log("error getHouses => ", error))
+      .catch(error => console.log("error HouseService.getHouses() => ", error))
   }, [])
 
   function handleGoSettings() {
@@ -31,10 +30,7 @@ export function List({ navigation }: any) {
   }
 
   function handleGoToSelection() {
-    // navigation.navigate('Selection', {
-    //   house: item
-    // })
-    navigation.navigate('Settings')
+    navigation.navigate('Selection')
   }
 
   return (
@@ -48,9 +44,9 @@ export function List({ navigation }: any) {
           data={houses}
           numColumns={2}
           renderItem={({ item }: ListRenderItemInfo<House>) => (
-            // <StyledTouchableOpacity onPress={() => handleGoToSelection()} style={{ width: "45%" }}>
+            <StyledTouchableOpacity onPress={() => handleGoToSelection()} style={{ width: "45%" }}>
               <ListItem item={item} />
-            // </StyledTouchableOpacity>
+            </StyledTouchableOpacity>
           )}
         />
       </StyledContainer>

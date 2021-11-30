@@ -5,28 +5,42 @@
       "name": "Andrew",
       "cpf": "12345678901",
       "email": "andrew@email.com",
-      "password": "123456"
+      "password": "123"
     },
     {
       "id": 2,
       "name": "Julio",
       "cpf": "12345678901",
       "email": "julio@email.com",
-      "password": "123456"
+      "password": "123"
     },
     {
       "name": "Marcos",
       "cpf": "12345678901",
       "email": "marcos@email.com",
-      "password": "123456",
+      "password": "123",
       "id": 3
     },
     {
       "name": "sillas",
       "phone": "123456",
       "email": "sillas@email",
-      "password": "123456",
+      "password": "123",
       "id": 4
+    },
+    {
+      "name": "sillas",
+      "phone": "123456",
+      "email": "sillas@email",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "name": "beatriz",
+      "phone": "123456",
+      "email": "beatriz@email",
+      "password": "123",
+      "id": 6
     }
   ],
   "houses": [
