@@ -9,8 +9,7 @@ import {
 import { theme } from 'global/styles/theme'
 import { User } from 'global/types/User'
 import React, { useState } from 'react'
-import { getUsers, postUser } from 'services/userService'
-import axios from 'axios'
+import { UserService } from 'services/userService'
 
 type Props = {
   update?: boolean
@@ -44,18 +43,7 @@ export function Customer({ update, navigation }: Props) {
       password: inputPassword
     }
 
-    console.log(inputName)
-    console.log(inputPhone)
-    console.log(inputEmail)
-    console.log(inputPassword)
-
-    postUser(user)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    UserService.postUser(user)
   }
 
   return (
@@ -73,6 +61,7 @@ export function Customer({ update, navigation }: Props) {
             placeholder="Telefone"
             placeholderTextColor={theme.dark.gray400}
             onChangeText={setInputPhone}
+            keyboardType="phone-pad"
           />
           <StyledInput
             placeholder="Login"

@@ -1,18 +1,20 @@
 import { House } from 'global/types/House'
 import { api } from 'utils/api'
 
-export function getHouses() {
-  return api.get('/houses')
-}
+export class HouseService {
+  static getHouses() {
+    return api.get('/Houses') 
+  }
 
-export function postHouse(data: House) {
-  return api.post('/houses', data)
-}
+  static postHouse(House: House) {
+    return api.post('/Houses', House)
+  }
 
-export function setHouse(data: House) {
-  return api.put(`/houses/${data.id}`, data)
-}
+  static getHouse(id: number) {
+    return api.get(`/Houses/${id}`)
+  }
 
-export function deleteHouse(id: number) {
-  return api.delete(`/houses/${id}`)
+  static putHouse(House: House) {
+    return api.put(`/Houses/${House.id}`, House)
+  }
 }
