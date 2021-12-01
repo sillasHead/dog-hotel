@@ -10,25 +10,47 @@ O aplicativo é voltado para donos de cães que desejam hospedar seus cachorros 
 
 Para uma melhor compreensão do projeto, optamos pela utilização do LiveShare, consequentemente facilitando o andamento, dessa forma não sendo necessário a criação de várias branchs, tornando-o mais simples.
 
+## Tecnologias utilizadas
+
+- IDE: Visual Studio Code
+- Front-End: React Native com TypeScript
+- Back-End: Servidor (Fake API) simulado com o auxílio do package Json-Server
+- Ambiente de testes: Emulador de android com Android Studio
+
 ## Quick start
-Necessário [Node.js](https://nodejs.org/en/) a para instalação das dependências. 
+Necessário [Node.js](https://nodejs.org/en/) para instalação das dependências. 
 
 Instalação do  [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable):
-- ```npm install --global yarn```
+```shell
+> npm install --global yarn
+```
 
 Realize os comandos a seguir na raíz do projeto.
 ***
 1. Instale as dependências do Expo:
-```yarn add expo-cli ```
+```shell
+> yarn add expo-cli 
+```
 2. Check-in de instalação dos pacotes do projeto com:
-```yarn install ```
+```shell
+> yarn install 
+```
 3. Instale  o pacote do json-server:
-```yarn add json-server```
+```shell
+> yarn add json-server
+```
 
 #### Execução do projeto juntamente com o servidor: 
 
 ##### Caso o ambiente seja Android Studio:
-- Execute o servidor com ```yarn server```, e após isso, execute o projeto com ```yarn start```
+1. Execute o servidor com 
+```shell
+> yarn server
+```
+2. execute o projeto com 
+```shell
+> yarn start
+```
 
 > Obs: Atente-se! A connection deve estar na opção "LAN" para que o servidor funcione corretamente.
 
@@ -37,9 +59,14 @@ Realize os comandos a seguir na raíz do projeto.
 ```ipconfig```
 2. Substitua o <em>[endereco_ipv4]</em> no endpoint da API em **utils/api.ts**, utilize a porta 3000
 3. Faça o host do servidor com
-```yarn json-server server.json --host [endereco_ipv4]```
+```shell
+> yarn json-server server.json --host [endereco_ipv4]
+```
+
 4. Execute o projeto com
-```yarn start```
+```shell 
+> yarn start
+```
 ***
 ## Integrantes
 
