@@ -122,7 +122,7 @@ export function NewUser({ navigation, route }: Props) {
             defaultValue={inputCpf}
             placeholder="CPF"
             placeholderTextColor={colors.gray400}
-            onChangeText={setInputPhone}
+            onChangeText={setInputCpf}
           />
           <StyledInput
             defaultValue={inputPhone}

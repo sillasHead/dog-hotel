@@ -5,6 +5,7 @@ import {
   StyledContainer,
   StyledLine,
   StyledSwitch,
+  StyledTextButtonText,
   StyledTouchableOpacity
 } from 'global/styles/components'
 import dark from 'global/themes/dark'
@@ -17,7 +18,7 @@ type Props = {
 }
 
 export function Settings({ navigation }: Props) {
-  
+
   const toggleSwitch = () => {
     setTheme(name === 'light' ? dark : light)
   }
@@ -46,12 +47,13 @@ export function Settings({ navigation }: Props) {
       <StyledContainer>
         <StyledTouchableOpacity onPress={toggleSwitch}
           style={{
-            flexDirection: "row"
+            flexDirection: "row",
+            alignItems: "center",
           }}
         >
-          <Button type="text">
+          <StyledTextButtonText style={{ marginRight: 20 }}>
             Tema Escuro
-          </Button>
+          </StyledTextButtonText>
           <StyledSwitch
             trackColor={{ false: colors.gray600, true: colors.greenGrayDisabled }}
             thumbColor={name === 'dark' ? colors.green : colors.gray400}
