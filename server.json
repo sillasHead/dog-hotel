@@ -2,38 +2,51 @@
   "users": [
     {
       "id": 1,
-      "name": "Andrew",
-      "cpf": "12345678901",
+      "name": "Andrew Fuller Vazquez",
+      "phone": "(11) 99204-7818",
+      "cpf": "831.681.790-00",
       "email": "andrew@email.com",
       "password": "123"
     },
     {
       "id": 2,
-      "name": "Julio",
-      "cpf": "12345678901",
+      "name": "Julio Cesar Santos Vieira",
+      "phone": "(11) 99953-3525",
+      "cpf": "829.156.470-11",
       "email": "julio@email.com",
       "password": "123"
     },
     {
-      "name": "Marcos",
-      "cpf": "12345678901",
-      "email": "marcos@email.com",
+      "name": "Marta de Jesus",
+      "phone": "(11) 98484-1272",
+      "cpf": "697.274.620-57",
+      "email": "marta@email.com",
       "password": "123",
       "id": 3
     },
     {
       "id": 4,
-      "name": "sillas",
-      "phone": "123456",
+      "name": "Sillas Cavalcante",
+      "cpf": "456.961.120-64",
+      "phone": "(11) 98507-0153",
       "email": "sillas@email",
       "password": "123"
     },
     {
       "id": 5,
-      "name": "danilo silva",
-      "phone": "121321",
+      "name": "Danilo Silva Ranéa",
+      "cpf": "888.535.420-39",
+      "phone": "(11) 98748-2643",
       "email": "danilo@email",
       "password": "123"
+    },
+    {
+      "name": "Marco Antonio",
+      "phone": "(11) 98998-9676",
+      "cpf": "499.291.470-55",
+      "email": "ma@email",
+      "password": "1234",
+      "id": 6
     }
   ],
   "houses": [
@@ -42,18 +55,14 @@
       "imageUrl": "https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg",
       "address": "Rua Casa do Ator, 1",
       "owner": {
-        "name": "Marco",
-        "phone": "(11) 9 9999 9999",
+        "name": "Marco Valente Justive",
+        "phone": "(11) 3874-0734",
         "email": "marco@email.com"
       },
       "ratings": [
         {
           "userId": 4,
-          "rating": 3
-        },
-        {
-          "userId": 5,
-          "rating": 3
+          "rating": 5
         }
       ]
     },
@@ -62,8 +71,8 @@
       "imageUrl": "https://www.teclasap.com.br/wp-content/uploads/2009/09/house-1.jpg",
       "address": "Rua George Hom, 2",
       "owner": {
-        "name": "Julio",
-        "phone": "(11) 9 9999 9999",
+        "name": "Julio da Silva Santos Filho",
+        "phone": "(11) 3851-7460",
         "email": "julio@email.com"
       },
       "ratings": [
@@ -82,8 +91,8 @@
       "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG91c2V8ZW58MHx8MHx8&w=1000&q=80",
       "address": "Rua Eduardo Souza Aranha, 3",
       "owner": {
-        "name": "Marcos",
-        "phone": "(11) 9 9999 9999",
+        "name": "Marcos Gabriel de Souza Neto",
+        "phone": "(11) 2999-3163",
         "email": "marcos@email.com"
       },
       "ratings": [
@@ -102,8 +111,8 @@
       "imageUrl": "https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607",
       "address": "Av Antonia Pazzinato Sturion, 4",
       "owner": {
-        "name": "Sillas",
-        "phone": "(11) 9 9999 9999",
+        "name": "Silas Calixto Simon",
+        "phone": "(11) 2631-6205",
         "email": "sillas@email.com"
       },
       "ratings": [
@@ -114,6 +123,10 @@
         {
           "userId": 2,
           "rating": 4
+        },
+        {
+          "userId": 6,
+          "rating": 4.5
         }
       ]
     },
@@ -122,8 +135,8 @@
       "imageUrl": "https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg",
       "address": "Rua Jesuino Arruda, 5",
       "owner": {
-        "name": "Maria",
-        "phone": "(11) 9 9999 9999",
+        "name": "Maria Costa e Silva",
+        "phone": "(11) 3952-1462",
         "email": "maria@email.com"
       },
       "ratings": [
@@ -142,8 +155,8 @@
       "imageUrl": "https://archello.s3.eu-central-1.amazonaws.com/images/2019/04/10/modern-house-in-moscow-1.1554930809.2534.jpg",
       "address": "Rua Botucatu, 6",
       "owner": {
-        "name": "Amanda",
-        "phone": "(11) 9 9999 9999",
+        "name": "Amanda Beatriz Justino de Oliveira",
+        "phone": "(11) 2798-0192",
         "email": "amanda@email.com"
       },
       "ratings": [
@@ -154,6 +167,10 @@
         {
           "userId": 2,
           "rating": 4
+        },
+        {
+          "userId": 4,
+          "rating": 5
         }
       ]
     }

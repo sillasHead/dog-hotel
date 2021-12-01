@@ -1,5 +1,6 @@
-export const theme = {
-  dark: {
+export default {
+  name: 'dark',
+  colors: {
     white: '#FFFFFF',
     black: '#000000',
     gray400: '#BBBBBB',
@@ -11,14 +12,4 @@ export const theme = {
     red: '#FF7E7E',
     yellow: '#ffee58',
   },
-  light: {
-    white: '#000',
-    black: '#FFFFFF',
-    gray: '#BBBBBB',
-    green: '#9DCF94',
-    gray800: '#FFFFFF',
-    greenGray: '#E2F1DF',
-    greenGrayDisabled: '#BADDB4',
-    red: '#FF7E7E',
-  }
 }

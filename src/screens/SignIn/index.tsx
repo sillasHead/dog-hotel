@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Alert, StatusBar } from 'react-native'
-import Logo from 'assets/logo.svg'
+import DarkLogoSvg from 'assets/dark-svg/logo.svg'
+import LightLogoSvg from 'assets/light-svg/logo.svg'
 import { Button } from 'components/Button'
 import {
   StyledContainer,
   StyledInput,
   StyledView
 } from 'global/styles/components'
-import { theme } from 'global/styles/theme'
 import { UserService } from 'services/userService'
 import { useUser } from 'context/User'
+import { ThemeContext } from 'styled-components/native'
 
 type Props = {
   navigation: any
@@ -19,6 +20,7 @@ export function SignIn({ navigation }: Props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { colors, name } = useContext(ThemeContext)
   const { setUser } = useUser()
 
   function handleEnter() {
@@ -31,7 +33,7 @@ export function SignIn({ navigation }: Props) {
           Alert.alert('Login ou Senha incorretos')
         }
       })
-      .catch(error => console.log('error UserService.getLogin(email, password) => ',error))
+      .catch(error => console.log('error UserService.getLogin(email, password) => ', error))
   }
 
   function handleNewAccount() {
@@ -45,18 +47,21 @@ export function SignIn({ navigation }: Props) {
         backgroundColor="transparent"
         translucent
       />
-      <Logo />
-
+      {name === 'light' ? (
+        <LightLogoSvg width={220} height={150} />
+      ) : (
+        <DarkLogoSvg width={220} height={150} />
+      )}
       <StyledView marginTop="50px">
         <StyledInput
           placeholder="Login"
-          placeholderTextColor={theme.dark.gray400}
+          placeholderTextColor={colors.gray400}
           onChangeText={setEmail}
         />
         <StyledInput
           placeholder="Senha"
           secureTextEntry
-          placeholderTextColor={theme.dark.gray400}
+          placeholderTextColor={colors.gray400}
           onChangeText={setPassword}
         />
       </StyledView>

@@ -4,22 +4,26 @@ import { useUser } from 'context/User'
 import {
   StyledContainer,
   StyledLine,
-  StyledSwitch, 
+  StyledSwitch,
   StyledTouchableOpacity
 } from 'global/styles/components'
-import { theme } from 'global/styles/theme'
-import React, { useState } from 'react'
+import dark from 'global/themes/dark'
+import light from 'global/themes/light'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components/native'
 
 type Props = {
   navigation: any
 }
 
 export function Settings({ navigation }: Props) {
-  const [isEnabled, setIsEnabled] = useState(true)
+  
   const toggleSwitch = () => {
-    setIsEnabled(!isEnabled)
+    setTheme(name === 'light' ? dark : light)
   }
 
+  const { setTheme } = useUser()
+  const { name, colors } = useContext(ThemeContext)
   const { setUser } = useUser()
 
   function handleGoHome() {
@@ -49,11 +53,11 @@ export function Settings({ navigation }: Props) {
             Tema Escuro
           </Button>
           <StyledSwitch
-            trackColor={{ false: theme.dark.gray600, true: theme.dark.greenGrayDisabled }}
-            thumbColor={isEnabled ? theme.dark.green : theme.dark.gray400}
-            ios_backgroundColor={theme.dark.gray600}
+            trackColor={{ false: colors.gray600, true: colors.greenGrayDisabled }}
+            thumbColor={name === 'dark' ? colors.green : colors.gray400}
+            ios_backgroundColor={colors.gray600}
             onValueChange={toggleSwitch}
-            value={isEnabled}
+            value={name === 'dark'}
           />
         </StyledTouchableOpacity>
 

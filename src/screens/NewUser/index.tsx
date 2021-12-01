@@ -7,10 +7,10 @@ import {
   StyledTitle,
   StyledView
 } from 'global/styles/components'
-import { theme } from 'global/styles/theme'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Alert } from 'react-native'
 import { UserService } from 'services/userService'
+import { ThemeContext } from 'styled-components/native'
 
 type Props = {
   route: any
@@ -21,15 +21,18 @@ export function NewUser({ navigation, route }: Props) {
   const update: boolean = route?.params?.update ?? false
 
   const [inputName, setInputName] = useState('')
+  const [inputCpf, setInputCpf] = useState('')
   const [inputPhone, setInputPhone] = useState('')
   const [inputEmail, setInputEmail] = useState('')
   const [inputPassword, setInputPassword] = useState('')
 
+  const { colors } = useContext(ThemeContext)
   const { user, setUser } = useUser()
 
   useEffect(() => {
     if (update && user) {
       setInputName(user.name)
+      setInputCpf(user.cpf)
       setInputPhone(user.phone)
       setInputEmail(user.email)
       setInputPassword(user.password)
@@ -49,15 +52,16 @@ export function NewUser({ navigation, route }: Props) {
   }
 
   function submit() {
-    if (!inputName || !inputPhone || !inputEmail || !inputPassword) {
+    if (!inputName || !inputCpf || !inputPhone || !inputEmail || !inputPassword) {
       Alert.alert('Preencha todos os campos')
       return
-    } 
+    }
 
     if (update && user) {
       UserService.put({
         id: user.id,
         name: inputName,
+        cpf: inputCpf,
         phone: inputPhone,
         email: inputEmail,
         password: inputPassword
@@ -65,6 +69,7 @@ export function NewUser({ navigation, route }: Props) {
         .then(() => {
           Alert.alert('Dados atualizados com sucesso!')
           setUser({
+            ...user,
             name: inputName,
             phone: inputPhone,
             email: inputEmail,
@@ -72,7 +77,7 @@ export function NewUser({ navigation, route }: Props) {
           })
           handleGoHome()
         })
-        .catch(error => console.log('error UserService.put(user) => ', error))
+        .catch(error => {console.log('error UserService.put(user) => ', error); console.log(user.id)})
     } else {
       UserService.checkEmail(inputEmail)
         .then(response => {
@@ -83,10 +88,12 @@ export function NewUser({ navigation, route }: Props) {
             UserService.post({
               name: inputName,
               phone: inputPhone,
+              cpf: inputCpf,
               email: inputEmail,
               password: inputPassword
             })
               .then(response => {
+                Alert.alert('Cadastro realizado com sucesso!')
                 setUser(response.data)
                 handleGoHome()
               })
@@ -108,26 +115,32 @@ export function NewUser({ navigation, route }: Props) {
           <StyledInput
             defaultValue={inputName}
             placeholder="Nome Completo"
-            placeholderTextColor={theme.dark.gray400}
+            placeholderTextColor={colors.gray400}
             onChangeText={setInputName}
+          />
+          <StyledInput
+            defaultValue={inputCpf}
+            placeholder="CPF"
+            placeholderTextColor={colors.gray400}
+            onChangeText={setInputPhone}
           />
           <StyledInput
             defaultValue={inputPhone}
             placeholder="Telefone"
-            placeholderTextColor={theme.dark.gray400}
+            placeholderTextColor={colors.gray400}
             onChangeText={setInputPhone}
             keyboardType="phone-pad"
           />
           <StyledInput
             defaultValue={inputEmail}
             placeholder="Login"
-            placeholderTextColor={theme.dark.gray400}
+            placeholderTextColor={colors.gray400}
             onChangeText={setInputEmail}
           />
           <StyledInput
             defaultValue={inputPassword}
             placeholder={update ? "Nova Senha" : "Senha"} secureTextEntry
-            placeholderTextColor={theme.dark.gray400}
+            placeholderTextColor={colors.gray400}
             onChangeText={setInputPassword}
           />
         </StyledView>

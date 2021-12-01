@@ -1,15 +1,14 @@
 import styled from 'styled-components/native'
 import { fonts } from './fonts'
-import { theme } from './theme'
 
 interface IContainer {
   justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around'
 }
 interface IView {
-  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch' 
+  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'stretch'
   flexDirection?: 'row' | 'column'
-  heigth?: string 
-  width?: string 
+  heigth?: string
+  width?: string
   justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around'
   marginTop?: string
   backgroundColor?: string
@@ -33,7 +32,7 @@ export const StyledContainer = styled.View<IContainer>`
   flex: 1;
   align-items: center;
   justify-content: ${props => props.justifyContent || 'center'};
-  background-color: ${theme.dark.gray800};
+  background-color: ${props => props.theme.colors.gray800};
 `
 export const StyledView = styled.View<IView>`
   align-items: ${props => props.alignItems || 'center'};
@@ -46,17 +45,17 @@ export const StyledView = styled.View<IView>`
   background-color: ${props => props.backgroundColor || 'transparent'};
 `
 export const StyledText = styled.Text`
-  color: ${theme.dark.white};
+  color: ${props => props.theme.colors.white};
 `
 export const StyledTitle = styled.Text<ITitle>`
   font-family: ${fonts.black};
-  color: ${props => theme.dark[props.color || 'gray400']};
+  color: ${props => props.theme.colors[props.color || 'gray400']};
   font-size: 20px;
 `
 export const StyledInput = styled.TextInput`
   width: 100%;
-  color: ${theme.dark.white};
-  border-color: ${theme.dark.gray400};
+  color: ${props => props.theme.colors.white};
+  border-color: ${props => props.theme.colors.gray400};
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;
@@ -68,22 +67,22 @@ export const StyledTouchableOpacity = styled.TouchableOpacity`
 export const StyledButtonContent = styled.TouchableOpacity<IButton>`
   width: ${props => props.stretch ? '100%' : 'auto'};
   align-items: center;
-  background-color: ${theme.dark.green};
+  background-color: ${props => props.theme.colors.green};
   border-color: transparent;   
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  `
+`
 export const StyledButtonOutline = styled.TouchableOpacity<IButton>`
   width: ${props => props.stretch ? '100%' : 'auto'};
   align-items: center;
-  border-color: ${theme.dark.green};
+  border-color: ${props => props.theme.colors.green};
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  `
+`
 export const StyledButtonText = styled.TouchableOpacity<IButton>`
   width: ${props => props.stretch ? '100%' : 'auto'};
   align-items: center;
@@ -92,28 +91,28 @@ export const StyledButtonText = styled.TouchableOpacity<IButton>`
   margin: 10px;
 `
 export const StyledTextButtonContent = styled.Text`
-  color: ${theme.dark.gray800};
+  color: ${props => props.theme.colors.gray800};
   font-family: ${fonts.black};
 `
 export const StyledTextButtonOutline = styled.Text`
-  color: ${theme.dark.green};
+  color: ${props => props.theme.colors.green};
   font-family: ${fonts.black};
 `
 export const StyledTextButtonText = styled.Text<IText>`
   font-family: ${fonts.black};
-  color: ${props => theme.dark[props.color || 'gray400']};
+  color: ${props => props.theme.colors[props.color || 'gray400']};
   font-size: 20px;
 `
 export const StyledLine = styled.View`
   width: 90%;
   height: 1px;
   margin: 20px;
-  background: ${theme.dark.gray400};
+  background: ${props => props.theme.colors.gray400};
 `
 export const StyledContainerImage = styled.View<IContainerImage>`
   width: ${props => props.width || '100%'};
   height: ${props => props.height || '300px'};
-  background: ${theme.dark.black};
+  background: ${props => props.theme.colors.black};
   margin-bottom: ${props => props.marginBottom || '0px'};
 `
 export const StyledImage = styled.Image`

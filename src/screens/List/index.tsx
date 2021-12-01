@@ -7,15 +7,16 @@ import {
   StyledTouchableOpacity,
   StyledView
 } from 'global/styles/components'
-import { theme } from 'global/styles/theme'
 import { House } from 'global/types/House'
-import React, { ElementType, useEffect, useState } from 'react'
+import React, { ElementType, useEffect, useState, useContext } from 'react'
 import { ListRenderItemInfo } from 'react-native'
 import { ItemList } from 'screens/ItemList'
 import { HouseService } from 'services/houseService'
+import { ThemeContext } from 'styled-components/native'
 
 export function List({ navigation }: any) {
 
+  const { colors } = useContext(ThemeContext)
   const [houses, setHouses] = useState<House[]>([])
   const [housesView, setHousesView] = useState<House[]>([])
   const [inputLocation, setInputLocation] = useState<string>('')
@@ -59,7 +60,7 @@ export function List({ navigation }: any) {
         <StyledView marginTop="40px">
           <StyledInput
             placeholder="Digite o nome de uma rua"
-            placeholderTextColor={theme.dark.gray400}
+            placeholderTextColor={colors.gray400}
             onChangeText={setInputLocation}
           />
         </StyledView>
